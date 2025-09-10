@@ -1,0 +1,11 @@
+@font-face{
+    font-family: 'JetBrainsMono';
+    src: url(../assets/fonts/JetBrainsMono-VariableFont_wght.ttf) format(trueType);
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+*{
+    font-family: 'JetBrainsMono', sans-serif;
+    font-weight: 400;
+}

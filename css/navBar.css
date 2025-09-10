@@ -1,0 +1,43 @@
+
+/*  Arquivo de estilização da barra de navegação
+    Certifique-se de usar #barraNavegacao no começo de cada estilização nova
+    Para que quando for importar este css, este arquivo não altere outra tag que nao deveria
+
+*/
+#barraNavegacao{
+    margin-top: 32px;
+    width: 90%;
+    height: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 100px;
+    padding: 12px 12px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#barraNavegacao scrolled{
+
+}
+
+#barraNavegacao #logo{
+    width: 200px;
+}
+
+#barraNavegacao a{
+    text-decoration: none;
+    font-size: 1em;
+    
+}
+
+#barraNavegacao #loginBtn{
+    background-color: blue;
+    padding: 12px 48px;
+    color: white;
+    border-radius: 100px;
+    
+}
