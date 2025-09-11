@@ -1,9 +1,12 @@
-html, body{
+*{
     margin: 0;
     border: 0;
 
 }
 
+html{
+    height: 2000px;
+}
 
 #indexFundo01{
     width: 100%;

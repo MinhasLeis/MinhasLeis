@@ -14,29 +14,36 @@
     justify-content: space-around;
     align-items: center;
     border-radius: 100px;
-    padding: 12px 12px;
+    padding: 8px 12px;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
+    transition: .25s ease-in-out;
+    z-index: 1000;
 }
 
-#barraNavegacao scrolled{
-
+#barraNavegacao.scrolled{
+    width: 100%;
+    left: 50%;
+    margin-top: 0;
+    transform: translateX(-50%);
+    border-radius: 0;
+    transition: .25s ease-in;
 }
 
 #barraNavegacao #logo{
-    width: 200px;
+    width: 13vw;
 }
 
 #barraNavegacao a{
     text-decoration: none;
-    font-size: 1em;
+    font-size: 1.25vw;
     
 }
 
 #barraNavegacao #loginBtn{
     background-color: blue;
-    padding: 12px 48px;
+    padding: 12px 4vw;
     color: white;
     border-radius: 100px;
     
