@@ -8,15 +8,7 @@ html{
     height: 2000px;
 }
 
-#indexFundo01{
-    width: 100%;
-}
-
-#heroSection{
-    padding-top: 100px;
-    background-image: url(../assets/img/indexFundo01.svg);
-    background-size:cover;
-    background-repeat: no-repeat;
+section{
     width: 100%;
     height: 100vh;
     color: white;
@@ -26,6 +18,23 @@ html{
     justify-items: center;
     position: relative;
 }
+
+
+/* 
+    Seção hero
+*/
+
+#indexFundo01{
+    width: 100%;
+}
+
+#heroSection{
+    padding-top: 100px;
+    background-image: url(../assets/img/indexFundo01.svg);
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
 
 #heroSection h1{
     position: absolute;
@@ -51,7 +60,6 @@ html{
     padding: 12px 45px;
     border-radius: 100px;
     outline: 3px solid #32BA96;
-
 }
 
 #queroResolverBtn p{
@@ -71,4 +79,12 @@ html{
 #heroSection #btnProximo{
     position: absolute;
     top: 75%;
+}
+
+/* 
+    Seção MarIA
+*/
+
+#mariaSection{
+
 }
