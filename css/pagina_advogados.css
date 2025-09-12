@@ -25,13 +25,14 @@
 /* Perfil: foto + informações */
 .perfil { 
   display: flex; 
-  align-items: flex-start; }
+  align-items: flex-start; 
+ 
+}
 
-/* Foto maior como no modelo */
+/* Foto  */
 .foto-perfil {
-  width: 220px;
-  height: auto;
-  border-radius: 15px;
+  width: 400px;
+  border-radius: 1000px;
   padding: 6px;
 }
 
@@ -40,10 +41,7 @@
   font-size: 22px; 
   height: 38px;
   margin-left: 10px
-
- 
 }
-
 
 .atuacao 
 { color: #444; 
