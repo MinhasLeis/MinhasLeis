@@ -17,7 +17,7 @@ window.addEventListener("scroll", () =>{
             setTimeout(() =>{
                 logo.src = logoScrolled
                 logo.style.opacity = 1
-            },200);
+            },150);
         }
     }else{
         navbar.classList.remove("scrolled")
@@ -27,7 +27,7 @@ window.addEventListener("scroll", () =>{
             setTimeout(() =>{
                 logo.src = logoOriginal
                 logo.style.opacity = 1
-            },200)
+            },150)
         }
     }
 })
