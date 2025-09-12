@@ -3,12 +3,12 @@
 const navbar = document.getElementById("barraNavegacao");
 const logo = document.getElementById("logo")
 
-const logoOriginal = "/MinhasLeis/assets/img/logoBarraNavegacao.svg"
-const logoScrolled = "/MinhasLeis/assets/img/logoBarraNavegacaoWhiteColor.svg"
+const logoOriginal = "assets/img/logoBarraNavegacao.svg";
+const logoScrolled = "assets/img/logoBarraNavegacaoWhiteColor.svg";
 
 
 
-window.addEventListener("scroll", () =>{
+window.addEventListener("scroll", () =>{ 
     if (window.scrollY > 15){
         navbar.classList.add("scrolled")
 
