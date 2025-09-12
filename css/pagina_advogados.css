@@ -1,0 +1,181 @@
+* { margin: 0;
+   padding: 0; 
+   box-sizing: border-box; 
+   font-family: sans-serif; 
+   position: relative;
+  }
+
+
+  
+.container { 
+   width: 85%;
+   margin: 60px;
+   }
+
+/* Cabeçalho  */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  background-color: #fff;
+}
+.logo { 
+   color: #0b78d6;
+   font-weight: 700; 
+   font-size: 18px; }
+
+header nav a {
+   margin: 0 10px; 
+   text-decoration: none; 
+   color: #333; 
+   font-size: 14px; }
+
+
+.profile-card {
+  background-color: #dff6ef; /* fundo verde/mint */
+  border-radius: 3px;
+  padding: 22px;
+}
+
+/* Perfil: foto + informações */
+.perfil { 
+  display: flex; 
+  align-items: flex-start; }
+
+/* Foto maior como no modelo */
+.foto-perfil {
+  width: 220px;
+  height: auto;
+  border-radius: 6px;
+  object-fit: cover;
+  background: #fff;
+  padding: 6px;
+}
+
+/* Info textual */
+.info h2 { 
+  font-size: 22px; 
+  margin-bottom: 6px; 
+  letter-spacing: 0.5px; 
+}
+
+
+.atuacao 
+{ color: #444; 
+  font-size: 13px;
+   margin-bottom: 10px; }
+
+
+
+.info h3 
+{ margin-top: 6px;
+   margin-bottom: 6px; 
+   font-size: 15px; }
+
+
+.resumo {
+   font-size: 13px; 
+   line-height: 1.45;
+    color: black; }
+
+/* Cards verdes dentro do card principal */
+.cards {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.card {
+  flex: 1;
+  background-color: #9fe2b9;
+  padding: 20px;
+  text-align: center;
+  margin-right: 20px; /* dá o espaço */
+}
+
+/* Faixa roxa */
+.faixa-roxa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #6b47d1; /* roxo */
+  color: #fff;
+  padding: 9px 14px;
+  margin-top: 16px;
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* Linha avaliações */
+.linha-avaliacoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+.avaliacoes-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #222;
+  font-weight: 700;
+}
+
+.avaliacoes-info {
+  margin-left: 6px;
+  color: #000;
+  font-weight: 700;
+}
+
+.btn-contato {
+  background-color: #22b07b;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 3px;
+  font-weight:700;
+}
+
+/* Seção Avaliações */
+.avaliacoes-lista { margin-top: 30px; }
+
+.avaliacoes-lista h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+/* Comentários com borda roxa arredondada */
+.comentario img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.coment-text strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+.coment-text p {
+  display: flex;
+  align-items: flex-start;
+  border: 2px solid #6b47d1;
+  padding: 24px;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  background-color: #fff;
+}
+
+
+/* pequenas responsividades */
+@media (max-width: 800px) {
+  .perfil { flex-direction: column; align-items:center; text-align:center; }
+  .foto-perfil { width: 200px; }
+  .cards { flex-direction: row; width:100%; }
+  .faixa-roxa { font-size:12px; }
+}
