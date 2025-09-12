@@ -25,15 +25,18 @@
 /* Perfil: foto + informações */
 .perfil { 
   display: flex; 
-  align-items: flex-start; 
+  flex-direction: row;
+  align-items: center;
  
 }
 
 /* Foto  */
 .foto-perfil {
-  width: 400px;
-  border-radius: 1000px;
+  width: 15vw;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
   padding: 6px;
+ 
 }
 
 /* Info textual */
@@ -103,13 +106,7 @@
   align-items: center;
   margin-top: 12px;
 }
-.avaliacoes-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #222;
-  font-weight: 700;
-}
+
 
 .avaliacoes-info {
   margin-left: 6px;
