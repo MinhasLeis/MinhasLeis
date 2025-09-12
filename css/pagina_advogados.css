@@ -3,38 +3,18 @@
    box-sizing: 0; 
   }
 
-
-  
 .container { 
-   width: 85%;
-   margin: 60px;
+    width: 85%;
+    margin: auto;
+    padding-top: 100px
    }
 
-/* Cabeçalho  */
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 12px;
-  background-color: #fff;
-  
-}
 .logo { 
    color: #0b78d6;
    font-weight: 700; 
    font-size: 18px;
    
    }
-  
-
-header nav a {
-   margin: 0 10px; 
-   text-decoration: none; 
-   color: #333; 
-   font-size: 14px; 
-   margin-right: 90px;
-   }
-
 
 .profile-card {
   background-color: #dff6ef; /* fundo verde */
