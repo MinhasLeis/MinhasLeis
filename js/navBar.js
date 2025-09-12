@@ -3,6 +3,8 @@
 const navbar = document.getElementById("barraNavegacao");
 const logo = document.getElementById("logo")
 
+const logoOriginal = "./assets/img/logoBarraNavegacao.svg"
+const logoScrolled = "./assets/img/logoBarraNavegacaoWhiteColor.svg"
 
 
 window.addEventListener("scroll", () =>{
@@ -12,7 +14,7 @@ window.addEventListener("scroll", () =>{
         if(!logo.src.includes("logoBarraNavegacaoWhiteColor.svg")){
             logo.style.opacity = 0
             setTimeout(() =>{
-                logo.src = "./assets/img/logoBarraNavegacaoWhiteColor.svg"
+                logo.src = logoScrolled
                 logo.style.opacity = 1
             },200);
         }
@@ -22,7 +24,7 @@ window.addEventListener("scroll", () =>{
         if(!logo.src.includes("logoBarraNavegacao.svg")){
             logo.style.opacity = 0
             setTimeout(() =>{
-                logo.src = "./assets/img/logoBarraNavegacao.svg"
+                logo.src = logoOriginal
                 logo.style.opacity = 1
             },200)
         }
