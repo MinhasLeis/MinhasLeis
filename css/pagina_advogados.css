@@ -1,8 +1,6 @@
 * { margin: 0;
    padding: 0; 
-   box-sizing: border-box; 
-   font-family: sans-serif; 
-   position: relative;
+   box-sizing: 0; 
   }
 
 
@@ -19,21 +17,27 @@ header {
   align-items: center;
   padding: 12px;
   background-color: #fff;
+  
 }
 .logo { 
    color: #0b78d6;
    font-weight: 700; 
-   font-size: 18px; }
+   font-size: 18px;
+   
+   }
+  
 
 header nav a {
    margin: 0 10px; 
    text-decoration: none; 
    color: #333; 
-   font-size: 14px; }
+   font-size: 14px; 
+   margin-right: 90px;
+   }
 
 
 .profile-card {
-  background-color: #dff6ef; /* fundo verde/mint */
+  background-color: #dff6ef; /* fundo verde */
   border-radius: 3px;
   padding: 22px;
 }
@@ -47,37 +51,43 @@ header nav a {
 .foto-perfil {
   width: 220px;
   height: auto;
-  border-radius: 6px;
-  object-fit: cover;
-  background: #fff;
+  border-radius: 15px;
   padding: 6px;
 }
 
 /* Info textual */
 .info h2 { 
   font-size: 22px; 
-  margin-bottom: 6px; 
-  letter-spacing: 0.5px; 
+  height: 38px;
+  margin-left: 10px
+
+ 
 }
 
 
 .atuacao 
 { color: #444; 
   font-size: 13px;
-   margin-bottom: 10px; }
+  height: 38px; 
+  margin-left: 10px;}
 
 
 
 .info h3 
 { margin-top: 6px;
    margin-bottom: 6px; 
-   font-size: 15px; }
+   font-size: 15px;
+   margin-left: 10px;
+   }
 
 
 .resumo {
    font-size: 13px; 
    line-height: 1.45;
-    color: black; }
+   color: black; 
+   margin-left: 10px;
+  }
+   
 
 /* Cards verdes dentro do card principal */
 .cards {
