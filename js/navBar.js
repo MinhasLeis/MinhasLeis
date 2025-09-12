@@ -3,8 +3,9 @@
 const navbar = document.getElementById("barraNavegacao");
 const logo = document.getElementById("logo")
 
-const logoOriginal = "../assets/img/logoBarraNavegacao.svg"
-const logoScrolled = "../assets/img/logoBarraNavegacaoWhiteColor.svg"
+const logoOriginal = "/MinhasLeis/assets/img/logoBarraNavegacao.svg"
+const logoScrolled = "/MinhasLeis/assets/img/logoBarraNavegacaoWhiteColor.svg"
+
 
 
 window.addEventListener("scroll", () =>{
