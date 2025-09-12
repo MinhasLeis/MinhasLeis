@@ -32,9 +32,9 @@
 
 /* Foto  */
 .foto-perfil {
-  width: 15vw;
+  width: 20vw;
   aspect-ratio: 1 / 1;
-  border-radius: 50%;
+  border-radius: 12px;
   padding: 6px;
  
 }
@@ -71,18 +71,11 @@
    
 
 /* Cards verdes dentro do card principal */
-.cards {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
+.cards img {
+width: 350px;
+height: 650;
+margin-left: 15px;
 
-.card {
-  flex: 1;
-  background-color: #9fe2b9;
-  padding: 20px;
-  text-align: center;
-  margin-right: 20px; /* dá o espaço */
 }
 
 /* Faixa roxa */
