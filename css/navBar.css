@@ -8,35 +8,46 @@
     margin-top: 16px;
     width: 90%;
     height: 64px;
-    background-color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     border-radius: 100px;
-    padding: 8px 12px;
+    padding: 0px 12px;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
     transition: .25s ease-in-out;
     z-index: 1000;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    background-color: rgba(255, 255, 255, 1);
+    color: black;
+
 }
 
 #barraNavegacao.scrolled{
     width: 100%;
-    left: 50%;
-    height: 36px;
+    padding: 0px 12px;
+    height: 50px;
     margin-top: 0;
     transform: translateX(-50%);
     border-radius: 0;
+    background-color: rgba(0, 0, 0, .3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     transition: .25s ease-in;
+    color: white;
 }
 
 #barraNavegacao #logo{
     width: 13vw;
+    transition: opacity 0.3s ease-in-out;
 }
 
+
 #barraNavegacao a{
+    color: inherit;
     text-decoration: none;
     font-size: 1.25vw;
     
