@@ -12,7 +12,7 @@ window.addEventListener("scroll", () =>{
         if(!logo.src.includes("logoBarraNavegacaoWhiteColor.svg")){
             logo.style.opacity = 0
             setTimeout(() =>{
-                logo.src = "../assets/img/logoBarraNavegacaoWhiteColor.svg"
+                logo.src = "./assets/img/logoBarraNavegacaoWhiteColor.svg"
                 logo.style.opacity = 1
             },200);
         }
@@ -22,7 +22,7 @@ window.addEventListener("scroll", () =>{
         if(!logo.src.includes("logoBarraNavegacao.svg")){
             logo.style.opacity = 0
             setTimeout(() =>{
-                logo.src = "../assets/img/logoBarraNavegacao.svg"
+                logo.src = "./assets/img/logoBarraNavegacao.svg"
                 logo.style.opacity = 1
             },200)
         }
