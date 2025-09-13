@@ -267,7 +267,7 @@ h3{
 /* Seção Resultados */
 
 #resultadosSection{
-    height: 2200px;
+    height: 1600px;
     background: linear-gradient(to bottom,#F2FFC9, #2AA3A3); 
     
 
@@ -319,8 +319,6 @@ h3{
     border-color: #0099FF;
     border-radius: 12px;
     overflow: hidden;
-    
-
 }
 
 .storie .storieTitulo{
