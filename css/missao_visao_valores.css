@@ -78,8 +78,8 @@ section{
 .caixa_titulo{
     flex-direction: row;
     margin-bottom: 100px;
-    height: 60px;
-    width: 400px;
+    height: auto;
+    width: auto;
     border-radius: 0px 35px 0px 35px;
     background: linear-gradient(135deg, rgba(83, 74, 74, 0.377));
     -webkit-backdrop-filter: blur(20px);
@@ -97,6 +97,6 @@ h1{
     color: rgb(254, 247, 255);
     font-weight: bold;
     flex-direction: row;
-    margin-bottom: 100px;
+    margin-bottom: auto;
     z-index:30;
 }
