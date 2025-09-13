@@ -36,15 +36,16 @@ section{
 
 }
 
+
 .texto{
-    width: 80%;
+    width: 70%;
     height: 50%;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 3px solid #ffffff2c;
-    border-radius: 10px;
+    border-radius: 35px;
 }
 
 .texto p{
@@ -60,25 +61,42 @@ section{
 .caixa_de_texto{
     width: 100%;
     height: 100%;
-    filter:blur(8px);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px); 
-    background-color: rgba(0, 0, 0, 0.247);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.2); /*a borda mesmo ta no .texto*/
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(21, 21, 44, 0.267));
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgb(0, 0, 0);
+    border: 1px solid rgba(49, 32, 32, 0.18);
+    border-radius: 32px;
     position: absolute;
+    
 
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.caixa_titulo{
+    flex-direction: row;
+    margin-bottom: 100px;
+    height: 60px;
+    width: 400px;
+    border-radius: 0px 35px 0px 35px;
+    background: linear-gradient(135deg, rgba(15, 5, 5, 0.377));
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 0px 32px;
+
+}
+
+
 h1{
     font-size: 3vw;
     text-align: center;
-    color: rgb(218, 60, 233);
+    color: rgb(254, 247, 255);
     font-weight: bold;
     flex-direction: row;
     margin-bottom: 100px;
+    z-index:30;
 }
