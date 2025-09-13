@@ -99,4 +99,5 @@ h1{
     flex-direction: row;
     margin-bottom: auto;
     z-index:30;
+    margin: 10px;
 }
