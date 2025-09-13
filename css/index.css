@@ -1,7 +1,7 @@
 *{
     margin: 0;
     border: 0;
-    box-sizing: 0;
+    box-sizing: border-box;
 }
 
 html{
@@ -92,9 +92,7 @@ h3{
     top: 75%;
 }
 
-/* 
-    Seção MarIA
-*/
+/* Seção MarIA */
 
 #mariaSection{
     height: 800px;
@@ -190,7 +188,6 @@ h3{
 #comoFuncionaSection{
     height: 2200px;
     background: linear-gradient(to bottom,#F2FFC9, #2AA3A3); 
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -219,7 +216,7 @@ h3{
 
 }
 
-#frameComoFunc{
+.frameComoFunc{
     position: relative;
     display: flex;
     flex-direction: row;
@@ -229,23 +226,21 @@ h3{
     top: 5%;
 }
 
-#viewComoFunc{
+.viewComoFunc{
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 40%;
     top: 20%;
-    transform: translateY(-100%);
     height: 300px;
-
     border-radius: 12px;
     transform: rotate(-1.5deg);
     color: #0099FF;
     background-color: #f7f6f2;
 }
 
-#textoComoFunc{
+.textoComoFunc{
     position: relative;
     display: flex;
     justify-content: center;
@@ -253,19 +248,68 @@ h3{
     width: 40%;
     height: 250px;
     top: 25%;
-    transform: translateY(-50%);
     transform: rotate(+1.5deg);
     background-color: #0099FF;
 
 }
 
-#textoComoFunc h2{
+.textoComoFunc h2{
     margin-bottom: 32px;
 }
 
-#textoComoFunc p{
+.textoComoFunc p{
     font-size: 1vw;
     text-align: center;
     margin: 64px 20px 0px 20px;
 
+}
+
+/* Seção Resultados */
+
+#resultadosSection{
+    height: 2200px;
+    background: linear-gradient(to bottom,#F2FFC9, #2AA3A3); 
+    
+
+}
+
+#caixaResultadosTitulo{
+    position: absolute;
+    top: 10%;
+    background-color: #0099FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 100px;
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+
+#caixaResultadosTitulo h1{
+    top:50%;
+    transform: translateY(-50%);
+}
+
+#resultadosSection h2{
+    top:17%;
+}
+
+#caixaStories{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 80%;
+    height: 500px;
+    top: 20%;
+    border: 1px solid red;
+}
+
+.storie{
+    position: relative;
+    width: 20%;
+    height: 400px;
+    border-color: #0099FF;
 }
