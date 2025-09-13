@@ -61,7 +61,8 @@ html{
 }
 
 #pai_container{
-    height: 1px;
+    width: 70vw;
+    height: auto;
     width: auto;
     background-color: rgba(19, 16, 16, 0);
     display: flex;
@@ -69,7 +70,9 @@ html{
     align-items: center;
     object-position: center;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 45px;
+    margin-top: 20px;
 }
 
 .filho_container{
