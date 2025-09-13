@@ -43,6 +43,29 @@ h3{
     text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
+#caixaTitulo{
+    position: absolute;
+    top: 10%;
+    background-color: #0099FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 100px;
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+
+#caixaTitulo h1{
+
+    top: 50%;
+    transform: scaleY(-50%);
+
+
+}
+
+
 /* 
     Seção hero
 */
@@ -186,7 +209,7 @@ h3{
 */
 
 #comoFuncionaSection{
-    height: 2200px;
+    height: 1800px;
     background: linear-gradient(to bottom,#F2FFC9, #2AA3A3); 
     display: flex;
     flex-direction: column;
@@ -194,21 +217,7 @@ h3{
 
 }
 
-#caixaComoFuncTitulo{
-    position: absolute;
-    top: 10%;
-    background-color: #0099FF;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50vw;
-    height: 100px;
-    border-top-left-radius: 35px;
-    border-bottom-right-radius: 35px;
-}
-
-#caixaComoFuncTitulo h1{
+#caixaTitulo h1{
     font-weight: 400;
     position: absolute;
     top:50%;
@@ -267,33 +276,15 @@ h3{
 /* Seção Resultados */
 
 #resultadosSection{
-    height: 1600px;
+    height: 1000px;
     background: linear-gradient(to bottom,#F2FFC9, #2AA3A3); 
     
 
 }
 
-#caixaResultadosTitulo{
-    position: absolute;
-    top: 10%;
-    background-color: #0099FF;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 80vw;
-    height: 100px;
-    border-top-left-radius: 35px;
-    border-bottom-right-radius: 35px;
-}
-
-#caixaResultadosTitulo h1{
-    top:50%;
-    transform: translateY(-50%);
-}
 
 #resultadosSection h2{
-    top:17%;
+    top:25%;
 }
 
 #caixaStories{
@@ -304,7 +295,7 @@ h3{
     align-items: center;
     width: 80%;
     height: 500px;
-    top: 20%;
+    top: 35%;
 
 }
 
@@ -337,5 +328,112 @@ h3{
     background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
     padding: 12px;
+}
+
+/*Seção Conecte-se*/
+
+#conecteSection{
+    position: relative;
+    height: 1000px;
+
+}
+
+#conecteSection{
+    height: 1000px;
+    background-color: blueviolet;
+}
+
+
+#iconeConecte{
+    position: absolute;
+    z-index: 1000;
+    top:0%;
+    transform: translateY(-50%);
+}
+
+#caixaPlanos{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 40%;
+    width:90%;
+    height: 500px;
+    border: 1px solid red;
+}
+
+#areaPlanos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 35%;
+    height: 100%;
+    background-color: yellow;
+}
+
+.planoTitulo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    width: 200px;
+    height: 60px;
+    background-color: red;
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+
+.planoTitulo h1{
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5vw;
+    text-align: center;
+    font-weight: 400;
+    text-shadow: none;
+}
+
+.planoText{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    height: 80%;
+    background-color: blue;
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+
+.planoText h2{
+    font-size: 2vw;
+
+}
+
+.beneficio{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.beneficio p{
+    margin: 12px 12px;
+}
+
+
+.iconeBeneficio{
+    padding: 0px 12px;
+}
+
+.planoBtn{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5vw;
+    width: 25vw;
+    height: 70px;
+    border-radius: 200px;
+    background-color: red;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
