@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    border: 0;
+    box-sizing: 0;
+}
+
+html{
+    height: auto;
+    width: auto;
+    background: #0099FF;
+    background: linear-gradient(153deg, rgba(0, 153, 255, 1) 0%, rgba(136, 182, 255, 1) 100%);
+}
+
+body{
+    width: 100%;    
+    height: 100%;
+    position: relative;
+}
+
+#barraNavegacao {
+    width: 100%; 
+    background-color: #ffffff; 
+    padding: 15px 5%; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+
+#lugar_foto_perfil{
+    width: 100%;
+    height: 20%;
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+#foto_perfil{
+    width: 10%; 
+    padding-top: 10%; 
+    background: url(../assets/img/advogadoPerfilCr.jpeg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    border-radius: 50%;
+    object-position: center;
+    box-shadow: 0 8px 32px 0 rgba(2, 23, 114, 0.527);
+}
+
+#editar_perfil {
+    background: #ACE057;
+    background: linear-gradient(153deg,rgba(172, 224, 87, 1) 0%, rgba(49, 199, 159, 1) 100%);
+    color: white;
+    padding: 3px 5px;    
+    border-radius: 50px;   
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 8px 32px 0 rgba(2, 23, 114, 0.527);
+}
+#editar_perfil:hover {
+    background: #5792e0;
+    background: linear-gradient(153deg,rgb(87, 142, 224) 0%, rgba(49, 199, 159, 1) 100%);
+    color: rgb(0, 0, 0);
+    border-radius: 50px;   
+    cursor: pointer;
+}
+
+#caixas_brancas{
+    width: 70vw;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    object-position: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.container{
+    width: 20vw;
+    height: 25vh;
+    border-radius: 12px;
+    border: 1px solid rgb(223, 220, 214);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.123));
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    box-shadow: 
+    inset -8px -8px 8px 0 rgba(255, 253, 253, 0.116), 
+    inset 8px 8px 8px 0 rgba(243, 243, 255, 0.2),
+    inset 8px 8px 8px 0 rgba(255, 255, 255, 0.2),
+    inset 8px 8px 8px 0 rgba(174,174,192,0.2);
+}
+
+
+.container:hover{
+    width: 20vw;
+    height: 25vh;
+    background: #ACE057;
+    background: linear-gradient(153deg,rgba(172, 224, 87, 1) 0%, rgba(49, 199, 159, 1) 100%);
+    border-radius: 12px;
+    border: 1px solid rgb(223, 220, 214);
+    box-shadow: 
+    inset -8px -8px 8px 0 rgba(255, 253, 253,0), 
+    inset 8px 8px 8px 0 rgba(243, 243, 255, 0),
+    inset 8px 8px 8px 0 rgba(255, 255, 255, 0),
+    inset 8px 8px 8px 0 rgba(174, 174, 192, 0);
+}
+
+#caixas_brancas p{
+    color: #ffffff;
+    text-align: center;
+    margin-top: 30%;
+    }
+
+#nome {
+    color: #ffffff;
+}
