@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height:200vh;
+    background: #0099FF;
+    background: linear-gradient(153deg, rgba(0, 153, 255, 1) 0%, rgba(136, 182, 255, 1) 100%);
+
+}
+
+#perfil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+    gap: 1vh;
+}
+
+#perfil{
+    height: 60vh;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+}
+#foto_perfil{
+    width: 10%; 
+    padding-top: 10%; 
+    background: url(../assets/img/advogadoPerfilCr.jpeg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    border-radius: 50%;
+    object-position: center;
+    box-shadow: 0 8px 32px 0 rgba(2, 23, 114, 0.527);
+}
+
+#editar_perfil {
+    background: #ACE057;
+    background: linear-gradient(153deg,rgba(172, 224, 87, 1) 0%, rgba(49, 199, 159, 1) 100%);
+    color: white;
+    padding: 3px 5px;    
+    border-radius: 50px;   
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 8px 32px 0 rgba(2, 23, 114, 0.527);
+}
+#editar_perfil:hover {
+    background: #5792e0;
+    background: linear-gradient(153deg,rgb(87, 142, 224) 0%, rgba(49, 199, 159, 1) 100%);
+    color: rgb(0, 0, 0);
+    border-radius: 50px;   
+    cursor: pointer;
+}
+
+#pai_container{
+    width: 70vw;
+    height: auto;
+    width: auto;
+    background-color: rgba(19, 16, 16, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-position: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 45px;
+    margin-top: 20px;
+}
+
+.filho_container{
+    width: 300px;
+    height: 25vh;
+    border-radius: 12px;
+    border: 1px solid rgba(223, 220, 214, 0.315);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.123));
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    box-shadow: 
+    inset -8px -8px 8px 0 rgba(255, 253, 253, 0.103), 
+    inset 8px 8px 8px 0 rgba(243, 243, 255, 0.103),
+    inset 8px 8px 8px 0 rgba(255, 255, 255, 0.137),
+    inset 8px 8px 8px 0 rgba(174,174,192,0.2);
+    cursor: pointer;
+}
+
+.filho_container:hover{
+    width: 300px;
+    height: 25vh;
+    background: #ACE057;
+    background: linear-gradient(153deg,rgba(172, 224, 87, 1) 0%, rgba(49, 199, 159, 1) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(223, 220, 214, 0);
+    box-shadow: 
+    inset -8px -8px 8px 0 rgba(255, 253, 253,0), 
+    inset 8px 8px 8px 0 rgba(243, 243, 255, 0),
+    inset 8px 8px 8px 0 rgba(255, 255, 255, 0),
+    inset 8px 8px 8px 0 rgba(174, 174, 192, 0);
+}
+
+#pai_lateral{
+    width: 15vw;
+    height: 100vh; 
+    background: #ACE057;
+    background: linear-gradient(153deg,#F2FFC9 0%, #2AA3A3 100%);
+    position: fixed; 
+    top: 0;      
+    left: 0;      
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-position: center;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.filho_lateral{
+    width: 100%;
+    height: 20vh;
+    border: 1px solid #5498ff1e;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.123));
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    cursor: pointer;
+}
+.filho_lateral:hover{
+    width: 100%;
+    height: 20vh;
+    border: 1px solid rgba(214, 218, 223, 0);
+    background-color: #059AFF;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    color: #000;
+}
+
+.texto_container{
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+.texto_container_lateral{
+    text-align: center;
+    margin-top: 50px;
+    margin-right: 10%;
+    font-size: 10px;
+}
