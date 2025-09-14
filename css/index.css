@@ -339,8 +339,8 @@ h3{
 }
 
 #conecteSection{
-    height: 1000px;
-    background-color: blueviolet;
+    height: 1200px;
+    background: linear-gradient(to bottom,#129EFE, #81B5FF); 
 }
 
 
@@ -355,10 +355,10 @@ h3{
     position: absolute;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     top: 40%;
     width:90%;
-    height: 500px;
-    border: 1px solid red;
+    height: auto;
 }
 
 #areaPlanos{
@@ -366,9 +366,10 @@ h3{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 35%;
+    width: 30%;
     height: 100%;
-    background-color: yellow;
+
+
 }
 
 .planoTitulo{
@@ -377,36 +378,54 @@ h3{
     justify-content: center;
     position: relative;
     align-items: center;
-    width: 200px;
-    height: 60px;
-    background-color: red;
+    width: auto;
+    height: auto;
+    padding: 12px 20px;
+    margin-bottom: 40px;
+    background-color: #32BA96;
     border-top-left-radius: 35px;
     border-bottom-right-radius: 35px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+}
+
+#planoTituloEspecial{
+    background-color: #7861FD;
+    position: absolute;
+    top: 11%;
+    box-shadow: none;
 }
 
 .planoTitulo h1{
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.5vw;
+    position: static;
+
+    font-size: 2vw;
     text-align: center;
-    font-weight: 400;
+    font-weight: 600;
     text-shadow: none;
 }
 
 .planoText{
+    color: #1B1B1B;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-direction: column;
-    width: 100%;
-    height: 80%;
-    background-color: blue;
+    width: auto;
+    height: auto;
+    background-color: #D0D8FF;
     border-top-left-radius: 35px;
     border-bottom-right-radius: 35px;
+    border-bottom-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 20px 12px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
 }
 
 .planoText h2{
+    position: static;
     font-size: 2vw;
-
+    margin: 24px 0px;
+    text-shadow: none;
+    
 }
 
 .beneficio{
@@ -416,24 +435,25 @@ h3{
 }
 .beneficio p{
     margin: 12px 12px;
+    font-size: 1vw;
 }
 
 
 .iconeBeneficio{
     padding: 0px 12px;
+    width: 50px;
 }
 
 .planoBtn{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5vw;
-    width: 25vw;
-    height: 70px;
+    color: white;
+    align-self: center;
+    font-size: 1.2vw;
+    width: auto;
+    height: auto;
+    padding: 16px 24px;
     border-radius: 200px;
-    background-color: red;
-    left: 50%;
-    transform: translateX(-50%);
+    background-color: #E3681B;
+    margin: 24px 0px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
 }
 
