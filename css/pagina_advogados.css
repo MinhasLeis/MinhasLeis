@@ -9,12 +9,7 @@
     padding-top: 100px
    }
 
-.logo { 
-   color: #0b78d6;
-   font-weight: 700; 
-   font-size: 18px;
-   
-   }
+
 
 .profile-card {
   background-color: #dff6ef; /* fundo verde */
@@ -27,12 +22,13 @@
   display: flex; 
   flex-direction: row;
   align-items: center;
+  justify-content: space-around;
  
 }
 
 /* Foto  */
 .foto-perfil {
-  width: 20vw;
+  width: 25vw;
   aspect-ratio: 1 / 1;
   border-radius: 12px;
   padding: 6px;
@@ -40,41 +36,76 @@
 }
 
 /* Info textual */
+
+.info{
+  width: 75%;
+  margin-left: 12px;
+}
+
 .info h2 { 
-  font-size: 22px; 
+  font-size: 2vw; 
   height: 38px;
-  margin-left: 10px
+
 }
 
 .atuacao 
 { color: #444; 
-  font-size: 13px;
+  font-size: 1vw;
   height: 38px; 
-  margin-left: 10px;}
-
-
+}
 
 .info h3 
-{ margin-top: 6px;
-   margin-bottom: 6px; 
-   font-size: 15px;
-   margin-left: 10px;
-   }
+{ 
+  margin-top: 6px;
+  margin-bottom: 6px; 
+  font-size: 1.5vw;
+}
 
 
 .resumo {
-   font-size: 13px; 
+   font-size: 1vw; 
    line-height: 1.45;
    color: black; 
-   margin-left: 10px;
+
   }
    
+#cards{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0px;
+  width: 100%;
+
+}
+
 
 /* Cards verdes dentro do card principal */
-.cards img {
-width: 350px;
-height: 650;
-margin-left: 15px;
+
+.card{
+  width:25%;
+  height: auto;
+  background: linear-gradient(to bottom, #31C79F 0%, #ACE057 100%);
+  border-radius: 6px;
+  padding: 20px 12px;
+
+}
+
+#cards .card-icon {
+  position: relative;
+  margin: auto;
+  width: 60px;
+  height: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#cards .card-text{
+  text-align: center;
+  font-size: 1vw;
+
+  color: white;
 
 }
 
@@ -91,6 +122,11 @@ margin-left: 15px;
   font-weight: 700;
   font-size: 13px;
 }
+
+.faixa-roxa span, .linha-avaliacoes span{
+  font-size: 1vw;
+}
+
 
 /* Linha avaliações */
 .linha-avaliacoes {
@@ -113,11 +149,19 @@ margin-left: 15px;
   border: none;
   padding: 8px;
   border-radius: 3px;
+  font-size: 2vw;
   font-weight:700;
 }
 
 /* Seção Avaliações */
-.avaliacoes-lista { margin-top: 30px; }
+.avaliacoes-lista { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px; 
+
+}
 
 .avaliacoes-lista h2 {
   text-align: center;
@@ -127,23 +171,37 @@ margin-left: 15px;
 }
 
 /* Comentários com borda roxa arredondada */
+.comentario{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .comentario img {
   width: 56px;
   height: 56px;
   border-radius: 50%;
+  margin-right: 12px;
 }
 
+.coment-text{
+  width: 90%;
+  height: auto;
+}
 .coment-text strong {
   display: block;
   margin-bottom: 6px;
-  font-size: 15px;
+  font-size: 1.5w;
 }
 
 .coment-text p {
   display: flex;
+  font-size: 1.2vw;
   align-items: flex-start;
   border: 2px solid #6b47d1;
-  padding: 24px;
+  padding: 16px;
   border-radius: 10px;
   margin-bottom: 14px;
   background-color: #fff;
@@ -154,6 +212,6 @@ margin-left: 15px;
 @media (max-width: 800px) {
   .perfil { flex-direction: column; align-items:center; text-align:center; }
   .foto-perfil { width: 200px; }
-  .cards { flex-direction: row; width:100%; }
+  #cards { flex-direction: row; width:100%; }
   .faixa-roxa { font-size:12px; }
 }

@@ -1,7 +1,7 @@
 *{
     margin: 0;
     border: 0;
-    box-sizing: 0;
+    box-sizing: border-box;
 }
 
 html{
@@ -42,6 +42,29 @@ h3{
     font-size: clamp(20px, 1.5vw, 64px);
     text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
+
+#caixaTitulo{
+    position: absolute;
+    top: 10%;
+    background-color: #0099FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 100px;
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+
+#caixaTitulo h1{
+
+    top: 50%;
+    transform: scaleY(-50%);
+
+
+}
+
 
 /* 
     Seção hero
@@ -92,9 +115,7 @@ h3{
     top: 75%;
 }
 
-/* 
-    Seção MarIA
-*/
+/* Seção MarIA */
 
 #mariaSection{
     height: 800px;
@@ -188,30 +209,15 @@ h3{
 */
 
 #comoFuncionaSection{
-    height: 2200px;
+    height: 1800px;
     background: linear-gradient(to bottom,#F2FFC9, #2AA3A3); 
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
 }
 
-#caixaComoFuncTitulo{
-    position: absolute;
-    top: 10%;
-    background-color: #0099FF;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50vw;
-    height: 100px;
-    border-top-left-radius: 35px;
-    border-bottom-right-radius: 35px;
-}
-
-#caixaComoFuncTitulo h1{
+#caixaTitulo h1{
     font-weight: 400;
     position: absolute;
     top:50%;
@@ -219,7 +225,7 @@ h3{
 
 }
 
-#frameComoFunc{
+.frameComoFunc{
     position: relative;
     display: flex;
     flex-direction: row;
@@ -229,23 +235,21 @@ h3{
     top: 5%;
 }
 
-#viewComoFunc{
+.viewComoFunc{
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 40%;
     top: 20%;
-    transform: translateY(-100%);
     height: 300px;
-
     border-radius: 12px;
     transform: rotate(-1.5deg);
     color: #0099FF;
     background-color: #f7f6f2;
 }
 
-#textoComoFunc{
+.textoComoFunc{
     position: relative;
     display: flex;
     justify-content: center;
@@ -253,19 +257,203 @@ h3{
     width: 40%;
     height: 250px;
     top: 25%;
-    transform: translateY(-50%);
     transform: rotate(+1.5deg);
     background-color: #0099FF;
 
 }
 
-#textoComoFunc h2{
+.textoComoFunc h2{
     margin-bottom: 32px;
 }
 
-#textoComoFunc p{
+.textoComoFunc p{
     font-size: 1vw;
     text-align: center;
     margin: 64px 20px 0px 20px;
 
 }
+
+/* Seção Resultados */
+
+#resultadosSection{
+    height: 1000px;
+    background: linear-gradient(to bottom,#F2FFC9, #2AA3A3); 
+    
+
+}
+
+
+#resultadosSection h2{
+    top:25%;
+}
+
+#caixaStories{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+    height: 500px;
+    top: 35%;
+
+}
+
+.storie{
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20%;
+    height: 450px;
+    border-color: #0099FF;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.storie .storieTitulo{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.storie p {
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 12px;
+}
+
+/*Seção Conecte-se*/
+
+#conecteSection{
+    position: relative;
+    height: 1000px;
+
+}
+
+#conecteSection{
+    height: 1200px;
+    background: linear-gradient(to bottom,#129EFE, #81B5FF); 
+}
+
+
+#iconeConecte{
+    position: absolute;
+    z-index: 1000;
+    top:0%;
+    transform: translateY(-50%);
+}
+
+#caixaPlanos{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    top: 40%;
+    width:90%;
+    height: auto;
+}
+
+#areaPlanos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+
+
+}
+
+.planoTitulo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    width: auto;
+    height: auto;
+    padding: 12px 20px;
+    margin-bottom: 40px;
+    background-color: #32BA96;
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+}
+
+#planoTituloEspecial{
+    background-color: #7861FD;
+    position: absolute;
+    top: 11%;
+    box-shadow: none;
+}
+
+.planoTitulo h1{
+    position: static;
+
+    font-size: 2vw;
+    text-align: center;
+    font-weight: 600;
+    text-shadow: none;
+}
+
+.planoText{
+    color: #1B1B1B;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    background-color: #D0D8FF;
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    border-bottom-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 20px 12px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
+}
+
+.planoText h2{
+    position: static;
+    font-size: 2vw;
+    margin: 24px 0px;
+    text-shadow: none;
+    
+}
+
+.beneficio{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.beneficio p{
+    margin: 12px 12px;
+    font-size: 1vw;
+}
+
+
+.iconeBeneficio{
+    padding: 0px 12px;
+    width: 50px;
+}
+
+.planoBtn{
+    color: white;
+    align-self: center;
+    font-size: 1.2vw;
+    width: auto;
+    height: auto;
+    padding: 16px 24px;
+    border-radius: 200px;
+    background-color: #E3681B;
+    margin: 24px 0px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
+}
+
