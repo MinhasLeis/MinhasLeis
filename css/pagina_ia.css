@@ -4,11 +4,21 @@
   font-family: Arial, sans-serif;
 }
 
-/* Fundo */
-body {
-  background-color: #4da6ff; 
+main {
+  padding-top: 40px;
+   background-color: #4da6ff; 
   color: #222;
 }
+
+/* Barra de navegação */
+nav, .topbar {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
 
 /* Topo */
 .topbar {
