@@ -51,7 +51,7 @@ html{
 .filho_container{
     width: 25vw;
     height: 15vh;
-    border-radius: 12px;
+    border-radius: 0.5vw;
     border: 1px solid rgba(223, 220, 214, 0.315);
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.123));
     -webkit-backdrop-filter: blur(20px);
@@ -70,7 +70,7 @@ html{
     height: 15vh;
     background: #ACE057;
     background: linear-gradient(153deg,rgba(172, 224, 87, 1) 0%, rgba(49, 199, 159, 1) 100%);
-    border-radius: 12px;
+    border-radius: 0.5vw;
     border: 1px solid rgba(223, 220, 214, 0);
     box-shadow: 
     inset -8px -8px 8px 0 rgba(255, 253, 253,0), 
@@ -84,7 +84,8 @@ html{
     font-size: 1vw;
     text-align: center;
     position: relative;
-    margin-top: 10%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 
