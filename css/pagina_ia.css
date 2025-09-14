@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
 
@@ -17,19 +16,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: #eaf4ff;
-  padding: 10px 30px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-  font-size: 18px;
-  color: #0074cc;
-}
-.logo img {
-  height: 30px;
-  margin-right: 8px;
+  padding: 30px;
 }
 
 .menu a {
@@ -52,7 +39,7 @@ body {
 /* FAQ */
 .faq {
   text-align: center;
-  padding: 40px 20px;
+  padding: 40px;
 }
 .faq h2 {
   font-size: 28px;
@@ -76,9 +63,6 @@ body {
   cursor: pointer;
   margin-bottom: 12px;
 }
-.faq-item:last-child {
-  margin-bottom: 0;
-}
 .faq-item.ativo {
   background-color: #4cd964;
   color: white;
@@ -91,7 +75,6 @@ body {
 /* Contato */
 .contato {
   background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(6px);
   margin: 40px auto;
   padding: 30px;
   border-radius: 15px;
@@ -114,9 +97,6 @@ form {
 }
 form > * {
   margin-bottom: 12px;
-}
-form > *:last-child {
-  margin-bottom: 0;
 }
 input, textarea {
   width: 100%;
