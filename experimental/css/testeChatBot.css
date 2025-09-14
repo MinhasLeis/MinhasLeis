@@ -2,3 +2,130 @@
 /*Importando fonte Inter do Google Fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(#EEEEFF, #C8C7FF);
+}
+
+.chatbot-popup{
+    width: 420px;
+    background-color: #fff;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+    0 32px 64px -48px rgba(0, 0, 0, 0.5);
+}
+
+.chat-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #5350C4;
+    padding: 15px 22px;
+}
+
+.chat-header .header-info{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-info .chatbot-logo{
+    height: 35px;
+    width: 35px;
+    padding: 6px;
+    fill: #5350C4;
+    background: #fff;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.header-info .logo-text{
+    color: #fff;
+    font-size: 1.31rem;
+    font-weight: 600;
+}
+
+.chat-header #close-chatbot{
+    border: none;
+    color: #fff;
+    height: 40px;
+    width: 40px;
+    font-size: 1.9rem;
+    margin-right: -10px;
+    border-radius: 50%;
+    padding-top: 2px;
+    cursor: pointer;
+    background: none;
+    transition: 0.2s ease;
+}
+
+.chat-header #close-chatbot:hover{
+    background: #3d39ac;
+    color: #fff;
+}
+
+.chat-body{
+    padding: 25px 22px;
+    display: flex;
+    gap: 20px;
+    height: 460px;
+    margin-bottom: 82px;
+    overflow-y: auto;
+    flex-direction: column;
+}
+
+.chat-body .message{
+    display: flex;
+    align-items: center;
+    gap:11px
+}
+
+.chat-body .bot-message .bot-avatar{
+    height: 35px;
+    width: 35px;
+    padding: 6px;
+    fill: #fff;
+    align-self: flex-end;
+    margin-bottom: 2px;
+    background: #5350C4;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.chat-body .user-message{
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.chat-body .message .message-text{
+    padding: 12px 16px;
+    max-width: 75%;
+    font-size: 0.95rem;
+    background: #F2F2FF;
+}
+
+.chat-body .bot-message .message-text{
+    background: #F2F2FF;
+    border-radius: 13px 13px 13px 3px;
+}
+
+.chat-body .user-message .message-text{
+    color: #fff;
+    background: #5350C4;
+    border-radius: 13px 13px 3px 13px;
+}
+
+.chat-footer{
+    position: absolute;
+}
