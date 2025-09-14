@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Fundo */
+body {
+  background-color: #4da6ff; 
+  color: #222;
+}
+
+/* Topo */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #eaf4ff;
+  padding: 10px 30px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: #0074cc;
+}
+.logo img {
+  height: 30px;
+  margin-right: 8px;
+}
+
+.menu a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.btn-entrar {
+  background-color: #4cd964; 
+  border: none;
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+/* FAQ */
+.faq {
+  text-align: center;
+  padding: 40px 20px;
+}
+.faq h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.faq-lista {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.faq-item {
+  width: 80%;
+  max-width: 600px;
+  padding: 15px;
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+.faq-item:last-child {
+  margin-bottom: 0;
+}
+.faq-item.ativo {
+  background-color: #4cd964;
+  color: white;
+  text-align: left;
+}
+.faq-item.ativo h3 {
+  margin-bottom: 8px;
+}
+
+/* Contato */
+.contato {
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 700px;
+  text-align: center;
+}
+.contato h2 {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.contato p {
+  margin-bottom: 20px;
+  color: #fff;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+form > * {
+  margin-bottom: 12px;
+}
+form > *:last-child {
+  margin-bottom: 0;
+}
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: white;
+}
+textarea {
+  resize: none;
+  height: 80px;
+}
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+.checkbox {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.checkbox input {
+  margin-right: 6px;
+}
+.btn-enviar {
+  background-color: #34c759; 
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
