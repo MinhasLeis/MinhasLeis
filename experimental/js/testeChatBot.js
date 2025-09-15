@@ -23,6 +23,52 @@ const userData = {
     message: null
 }
 
+const chatHistory = [];
+
+
+
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+
+const generateBorResponse =async (incomingMessageDiv) => {
+    const messageElement = incomingMessageDiv.querySelector(".message-text");
+    chatHistory.push({
+                role: "user",
+                parts: [{text: userData.message}]
+            });
+
+    const requestOptions ={
+        method: "POST",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify({
+            contents: chatHistory
+        })
+    }
+
+    try{
+        const response = await fetch(API_URL, requestOptions);
+        const data = await response.json();
+        if(!response.ok) throw new Error(data.error.message);
+
+
+        const apiReponseText = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, "$1").trim();
+        messageElement.innerText = apiReponseText;
+        chatHistory.push({
+            role: "model",
+            parts: [{text: apiReponseText}]
+        });
+    }catch(error){
+        console.log(error);
+        messageElement.innerText = error.message;
+        messageElement.style.color = "#ff0000";
+    }finally{
+        incomingMessageDiv.classList.remove("thinking");
+        chatBody.scrollTo({ top:chatBody.scrollHeight, behavior: "smooth"});
+    }
+
+}
+
+
+
 //FUNÇÃO 1
 //Função de detectão de tecla, a função será acionada toda vez que o usuário pressionar uma tecla.
 //Ele lida com o 'messageInput' que armazena o ponto de referencia da mensagem digitada nos formularios
@@ -39,10 +85,10 @@ messageInput.addEventListener("keydown", (e) => {
     //e checamos se 'userMessage' é verdadeiro ou seja, se não há conteúdo vazio
     if(e.key === "Enter" && userMessage){
         //Se as DUAS condições forem VERDADEIRAS, é chamado a função que cuida do processo de envio da mensagem do usuário para o chat e é colocado como parametro o 'e' que contém os dados da mensagem do usuário
-
         handleOutgoingMessage(e)
     }
 });
+
 
 //Adiciona um detector, nesse caso, do clique do mouse
 //Faz a mesma coisa do detector de teclados, mas é mais simples pois
@@ -85,6 +131,7 @@ const handleOutgoingMessage = (e) =>{
     //que é o 'chatBody' visto nas constantes criadadas no começo do script
     //através da propriedade 'appendChild'
     chatBody.appendChild(outgoingMessageDiv)
+    chatBody.scrollTo({ top:chatBody.scrollHeight, behavior: "smooth"});
 
     //É criado um 'Timeout' que é uma função que tem um delay pra rodar
     //Ela simulação o pensamento do bot pra responder depois desse delay
@@ -102,6 +149,8 @@ const handleOutgoingMessage = (e) =>{
 
         const incomingMessageDiv = createMessageElement(messageContent, "bot-message", "thinking");
         chatBody.appendChild(incomingMessageDiv);
+        chatBody.scrollTo({ top:chatBody.scrollHeight, behavior: "smooth"});
+        generateBorResponse(incomingMessageDiv);
     },600)//delay em milisegundos para rodar a função
 };
 
@@ -128,7 +177,11 @@ const createMessageElement = (content, ...classes) =>{
 
     //é retornado a div com suas classes definidas e seu conteúdo
     return div;
+
 };
+
+
+
 
 
 
