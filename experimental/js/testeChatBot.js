@@ -34,12 +34,12 @@ const generateBorResponse =async (incomingMessageDiv) => {
     
     const localApiUrl = "/api/gemini";
 
-    /*
+    
     chatHistory.push({
                 role: "user",
                 parts: [{text: userData.message}]
             });
-    */
+    
     const requestOptions ={
         method: "POST",
         headers: { "Content-Type": "application/json"},
