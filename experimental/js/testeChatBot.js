@@ -165,6 +165,10 @@ const handleOutgoingMessage = (e) => {
     // 1. Salva a mensagem do usuário no histórico PRIMEIRO.
     chatHistory.push({ role: "user", parts: [{ text: message }] });
 
+    if(chatHistory.length > 15){
+        chatHistory.splice(2, 2)
+    }
+
     // 2. Exibe a mensagem do usuário na tela.
     const outgoingMessageDiv = createMessageElement(`<div class="message-text">${message}</div>`, "user-message");
     chatBody.appendChild(outgoingMessageDiv);
