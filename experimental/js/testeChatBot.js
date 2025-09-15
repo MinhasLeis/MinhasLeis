@@ -28,7 +28,8 @@ const chatHistory = [
     {
         //Adicionando um contexto para que a IA já saiba sobre o que falar e não falar
         role: "user",
-        parts: [{text: "A partir de agora, você é a Maria, uma assistente jurídico virtual especializado em direito brasileiro. Você deve se comunicar de forma clara e objetiva. Recuse-se a responder perguntas que não sejam sobre o sistema judiciário ou leis do Brasil. Comece a primeira conversa se apresentando formalmente e oferecendo ajuda."}]
+        parts: [{ text: "A partir de agora, você é a Maria, uma assistente jurídico virtual especializado em direito brasileiro. Você deve se comunicar de forma clara e objetiva. **Use emojis de forma amigável e apropriada para tornar a conversa mais leve, como 👍, 😊, ou 🤔.** Recuse-se a responder perguntas que não sejam sobre o sistema judiciário ou leis do Brasil. Comece a primeira conversa se apresentando formalmente e oferecendo ajuda. Formate suas respostas usando Markdown quando apropriado para melhorar a clareza." }]
+
     },
     {
         role: "model",
@@ -117,8 +118,8 @@ const generateBotResponse = async (incomingMessageDiv) => {
             const botResponseText = data.candidates[0].content.parts[0].text;
 
             // Colocamos o texto da resposta no balão de mensagem, substituindo os pontinhos.
-            messageElement.innerText = botResponseText;
-            
+            //messageElement.innerText = botResponseText;
+            messageElement.innerHTML = marked.parse(botResponseText);
             // Adicionamos a resposta do bot ao nosso vetor histórico para guardar o contexto.
             chatHistory.push({
                 role: "model",
