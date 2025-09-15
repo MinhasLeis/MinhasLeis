@@ -248,3 +248,10 @@ body{
 .chat-form .chat-controls button:hover{
     background: #f1f1ff;
 }
+
+.message-text p{
+    margin-bottom: 1em;
+}
+.message-text p:last-child{
+    margin-bottom: 0;
+}
