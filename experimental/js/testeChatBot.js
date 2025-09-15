@@ -29,42 +29,53 @@ const chatHistory = [];
 
 /*const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;*/
 
-const generateBorResponse =async (incomingMessageDiv) => {
+// Renomeado para "Bot" e com a lógica de verificação
+const generateBotResponse = async (incomingMessageDiv) => {
     const messageElement = incomingMessageDiv.querySelector(".message-text");
-    
     const localApiUrl = "/api/gemini";
 
-
-    const requestOptions ={
+    const requestOptions = {
         method: "POST",
-        headers: { "Content-Type": "application/json"},
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             history: chatHistory
         })
-    }
+    };
 
-    try{
+    try {
         const response = await fetch(localApiUrl, requestOptions);
         const data = await response.json();
-        if(!response.ok) throw new Error(data.error.message);
 
+        if (data.error) {
+            throw new Error(data.error.message);
+        }
 
-        const apiReponseText = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, "$1").trim();
-        messageElement.innerText = apiReponseText;
-        chatHistory.push({
-            role: "model",
-            parts: [{text: apiReponseText}]
-        });
-    }catch(error){
-        console.log(error);
-        messageElement.innerText = error.message;
+        // --- A VERIFICAÇÃO DE SEGURANÇA QUE ESTÁ FALTANDO ---
+        // Checa se a propriedade 'candidates' existe na resposta da API.
+        if (data.candidates && data.candidates.length > 0) {
+            // Se existir, continue normalmente.
+            const botResponseText = data.candidates[0].content.parts[0].text;
+            messageElement.innerText = botResponseText;
+            
+            chatHistory.push({
+                role: "model",
+                parts: [{ text: botResponseText }]
+            });
+        } else {
+            // Se não existir, avise o usuário e registre o problema no console para você depurar.
+            console.error("Resposta da API sem 'candidates':", data);
+            messageElement.innerText = "Desculpe, não consegui gerar uma resposta. Tente reformular sua pergunta.";
+        }
+
+    } catch (error) {
+        console.error("Erro:", error);
+        messageElement.innerText = "Oops! Algo deu errado. Tente novamente.";
         messageElement.style.color = "#ff0000";
-    }finally{
+    } finally {
         incomingMessageDiv.classList.remove("thinking");
-        chatBody.scrollTo({ top:chatBody.scrollHeight, behavior: "smooth"});
+        chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
     }
-
-}
+};
 
 
 
@@ -149,7 +160,7 @@ const handleOutgoingMessage = (e) =>{
         const incomingMessageDiv = createMessageElement(messageContent, "bot-message", "thinking");
         chatBody.appendChild(incomingMessageDiv);
         chatBody.scrollTo({ top:chatBody.scrollHeight, behavior: "smooth"});
-        generateBorResponse(incomingMessageDiv);
+        generateBotResponse(incomingMessageDiv);
     },600)//delay em milisegundos para rodar a função
 };
 
