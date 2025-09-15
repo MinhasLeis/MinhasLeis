@@ -27,19 +27,14 @@ const chatHistory = [];
 
 
 
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+/*const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;*/
 
 const generateBorResponse =async (incomingMessageDiv) => {
     const messageElement = incomingMessageDiv.querySelector(".message-text");
     
     const localApiUrl = "/api/gemini";
 
-    
-    chatHistory.push({
-                role: "user",
-                parts: [{text: userData.message}]
-            });
-    
+
     const requestOptions ={
         method: "POST",
         headers: { "Content-Type": "application/json"},
