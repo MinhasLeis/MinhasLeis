@@ -102,8 +102,8 @@ const generateBotResponse = async (incomingMessageDiv) => {
 
         // 'await response.json()' pega a resposta (que vem como texto)
         // e a converte em um objeto JavaScript que podemos usar.
-        const data = await response.json();
-
+        //const data = await response.json();
+        const data = response.body.getReader();
         // Se o nosso backend nos retornou um objeto com a propriedade 'error',
         // nós criamos um novo erro para pular direto para o bloco 'catch'.
         if (data.error) {
