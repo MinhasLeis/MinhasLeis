@@ -26,9 +26,9 @@ const userData = {
 // o chat lembrar do que ja foi falado
 const chatHistory = [
     {
-        //Adicionando um contexto para que a IA já saiba sobre o que falar e não falar
+        //Adicionando um contexto para que a IA já saiba sobre o que e como falar
         role: "user",
-        parts: [{ text: "A partir de agora, você é a Maria, uma assistente jurídico virtual especializado em direito brasileiro. Você deve se comunicar de forma clara e objetiva. **Use emojis de forma amigável e apropriada para tornar a conversa mais leve, como 👍, 😊, ou 🤔.** Recuse-se a responder perguntas que não sejam sobre o sistema judiciário ou leis do Brasil. Comece a primeira conversa se apresentando formalmente e oferecendo ajuda. Formate suas respostas usando Markdown quando apropriado para melhorar a clareza." }]
+        parts: [{ text: "A partir de agora, você é a Maria, uma assistente jurídico virtual especializado em direito brasileiro. Você deve se comunicar de forma clara e objetiva. **Use emojis de forma amigável e apropriada para tornar a conversa mais leve, como 👍, 😊, ou 🤔.** Recuse-se a responder perguntas que não sejam sobre o sistema judiciário ou leis do Brasil. Comece a primeira conversa se apresentando formalmente e oferecendo ajuda. Formate suas respostas usando Markdown quando apropriado para melhorar a clareza.Use parágrafos para separar as ideias principais e formate o texto com Markdown" }]
 
     },
     {
@@ -69,47 +69,86 @@ const createMessageElement = (content, ...classes) =>{
 // Ela recebe como parâmetro o balão de mensagem "pensando..." (incomingMessageDiv)
 // para saber qual elemento na tela ela deve atualizar.
 const generateBotResponse = async (incomingMessageDiv) => {
+
+    // Dentro do balão "pensando...", ele encontra o lugar exato onde o texto
+    // da resposta será escrito (o elemento com a classe .message-text).
     const messageElement = incomingMessageDiv.querySelector(".message-text");
+
+    // Define o endereço do nossa Função Serverless no Vercel.
+    // É para este endereço que o nosso frontend vai enviar o pedido de mensagem.
     const localApiUrl = "/api/groq";
 
+    // Este objeto é o "formulário de pedido" que vamos enviar.
+    // Ele contém todas as instruções sobre a nossa requisição.   
     const requestOptions = {
+        //O Método POST Usado para ENVIAR dados para o servidor.
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ history: chatHistory })
+        //Os Cabeçalhos com os metadados que descrevem nosso pedido.
+        headers: { 
+            // Avisa ao servidor que o tipo de conteudo que está sendo enviado é no formato JSON.
+            "Content-Type": "application/json" 
+        },
+        // O contéudo do pedido: os dados que estamos enviando.
+        body: JSON.stringify({
+            // Enviamos o array 'chatHistory' dentro de um objeto, com a chave 'history'.
+            history: chatHistory
+        })
     };
 
     try {
+        // A palavra 'await' PAUSA a função aqui e fica esperando a resposta da internet.
+        // O fetch() envia nosso pedido (requestOptions) para o nosso Serverless (localApiUrl).
         const response = await fetch(localApiUrl, requestOptions);
-        // VOLTAMOS A USAR .json() para esperar a resposta completa do nosso backend
+
+        // 'await response.json()' pega a resposta (que vem como texto)
+        // e a converte em um objeto JavaScript que podemos usar.
         const data = await response.json();
 
+        // Se o nosso backend nos retornou um objeto com a propriedade 'error',
+        // nós criamos um novo erro para pular direto para o bloco 'catch'.
         if (data.error) {
             throw new Error(data.error.message);
         }
 
+        // Aqui aconteceu uma verificação de segurança contra respostas vazias da IA.
+        // Ele checa se a propriedade 'candidates' existe na resposta.
         if (data.candidates && data.candidates.length > 0) {
+
+            // Se tudo estiver certo, extraímos o texto da resposta da IA.
             const botResponseText = data.candidates[0].content.parts[0].text;
-            messageElement.innerText = botResponseText;
-            
+
+            // Colocamos o texto da resposta no balão de mensagem, substituindo os pontinhos.
+            //messageElement.innerText = botResponseText;
+            messageElement.innerHTML = marked.parse(botResponseText);
+            // Adicionamos a resposta do bot ao nosso vetor histórico para guardar o contexto.
             chatHistory.push({
                 role: "model",
                 parts: [{ text: botResponseText }]
             });
         } else {
+            // Se a resposta veio sem 'candidates', avisamos o usuário.
             console.error("Resposta da API sem 'candidates':", data);
-            messageElement.innerText = "Desculpe, não consegui gerar uma resposta.";
+            messageElement.innerText = "Desculpe, não consegui gerar uma resposta. Tente reformular sua pergunta.";
         }
 
     } catch (error) {
+        // Se qualquer linha dentro do 'try' falhar, o código pula para cá.
+        // Imprime o erro técnico no console do navegador para o desenvolvedor ver.
         console.error("Erro:", error);
+
+         // Mostramos uma mensagem de erro amigável para o usuário.
         messageElement.innerText = "Oops! Algo deu errado. Tente novamente.";
         messageElement.style.color = "#ff0000";
     } finally {
+
+        // Este bloco executa SEMPRE, não importa se deu sucesso ou erro.
+        // Remove a classe 'thinking' para parar a animação dos pontinhos.
         incomingMessageDiv.classList.remove("thinking");
+
+        // Garante que a janela do chat role para baixo para mostrar a mensagem.
         chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
     }
 };
-
 
 
 /*
@@ -178,22 +217,3 @@ messageInput.addEventListener("keydown", (e) => {
 //Faz a mesma coisa do detector de teclados, mas é mais simples pois
 //não precisa checar qual foi a tecla pressionada
 sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
-
-window.addEventListener("load", () => {
-    // Esta função será executada assim que a página terminar de carregar.
-    
-    // Passa por cada item do histórico inicial
-    chatHistory.forEach(turn => {
-        // Renderiza apenas as mensagens do 'model' (bot) que já devem aparecer
-        if (turn.role === 'model') {
-            const messageDiv = createMessageElement(
-                `<div class="message-text">${turn.parts[0].text}</div>`, 
-                "bot-message"
-            );
-            chatBody.appendChild(messageDiv);
-        }
-    });
-
-    // Garante que a rolagem esteja no final
-    chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
-});
