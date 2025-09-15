@@ -34,10 +34,12 @@ messageInput.addEventListener("keydown", (e) => {
     //Criada constante pra mensagem do usuário e através do objeto 'e' criado pra armazenar essa detecção, acessamos o valor da detecção(que é o texto) e aplicamos o trim(remove espaços vazios no começo e final do texto)
     const userMessage = e.target.value.trim();
 
+
     //Checamos através do objeto 'e' se a propriedade 'key'(tecla pressionada) é a tecla 'Enter'
     //e checamos se 'userMessage' é verdadeiro ou seja, se não há conteúdo vazio
     if(e.key === "Enter" && userMessage){
         //Se as DUAS condições forem VERDADEIRAS, é chamado a função que cuida do processo de envio da mensagem do usuário para o chat e é colocado como parametro o 'e' que contém os dados da mensagem do usuário
+
         handleOutgoingMessage(e)
     }
 });
@@ -61,6 +63,9 @@ const handleOutgoingMessage = (e) =>{
     //Dentro a propriedade 'message' do objeto 'userData' é atribuido tudo que estiver no campo de texto 'messageInput'através do '.value' e utiliza o 'trim' para limpar espaços vazios no inicio e no final do texto
     userData.message = messageInput.value.trim();
 
+    //Limpando a caixa de texto depois que a mensagem é enviada
+    messageInput.value = "";
+
     //Constante que recebe um texto ja escrito uma estrutura HTML div ja com a classe
     //'message-text' para ser estilizada quando for criada através do innerHTML na função
     // 'createMessageElement'
@@ -80,6 +85,24 @@ const handleOutgoingMessage = (e) =>{
     //que é o 'chatBody' visto nas constantes criadadas no começo do script
     //através da propriedade 'appendChild'
     chatBody.appendChild(outgoingMessageDiv)
+
+    //É criado um 'Timeout' que é uma função que tem um delay pra rodar
+    //Ela simulação o pensamento do bot pra responder depois desse delay
+    setTimeout(() =>{
+        const messageContent = `<svg class="bot-avatar" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 1024 1024">
+                    <path d="M738.3 287.6H285.7c-59 0-106.8 47.8-106.8 106.8v303.1c0 59 47.8 106.8 106.8 106.8h81.5v111.1c0 .7.8 1.1 1.4.7l166.9-110.6 41.8-.8h117.4l43.6-.4c59 0 106.8-47.8 106.8-106.8V394.5c0-59-47.8-106.9-106.8-106.9zM351.7 448.2c0-29.5 23.9-53.5 53.5-53.5s53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5-53.5-23.9-53.5-53.5zm157.9 267.1c-67.8 0-123.8-47.5-132.3-109h264.6c-8.6 61.5-64.5 109-132.3 109zm110-213.7c-29.5 0-53.5-23.9-53.5-53.5s23.9-53.5 53.5-53.5 53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5zM867.2 644.5V453.1h26.5c19.4 0 35.1 15.7 35.1 35.1v121.1c0 19.4-15.7 35.1-35.1 35.1h-26.5zM95.2 609.4V488.2c0-19.4 15.7-35.1 35.1-35.1h26.5v191.3h-26.5c-19.4 0-35.1-15.7-35.1-35.1zM561.5 149.6c0 23.4-15.6 43.3-36.9 49.7v44.9h-30v-44.9c-21.4-6.5-36.9-26.3-36.9-49.7 0-28.6 23.3-51.9 51.9-51.9s51.9 23.3 51.9 51.9z"></path>
+                </svg>
+                <div class="message-text">
+                    <div class="thinking-indicator">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>`;
+
+        const incomingMessageDiv = createMessageElement(messageContent, "bot-message", "thinking");
+        chatBody.appendChild(incomingMessageDiv);
+    },600)//delay em milisegundos para rodar a função
 };
 
 
@@ -89,14 +112,15 @@ const handleOutgoingMessage = (e) =>{
     Função que cria os balões de mensagens, o que ela faz é o seguinte:
     ela recebe dois valores, o 'content' que é o conteudo que vai para o balão de mensagem
     e o 'classes' que é o nome da classe da mensagem para que ela receba a estilização certa do css
+    
 */
-const createMessageElement = (content, classes) =>{
+const createMessageElement = (content, ...classes) =>{
     //É criado uma tag html vazia na memória(não é visivel por enquanto), sendo a div nesse caso e armazenada numa constante
     const div = document.createElement("div");
     
     //A div recebe por padrão a classe 'message' para receber estilização de tal
     //e depois recebe uma classe a depender do valor digitado no parametro 'classes'
-    div.classList.add("message", classes);
+    div.classList.add("message", ...classes);
 
     //o innerHTML insere o conteúdo da mensagem que foi recebido via o parametro 'content'
     //para dentro da tag que foi criada, então agora a div tem o conteudo da mensagem
