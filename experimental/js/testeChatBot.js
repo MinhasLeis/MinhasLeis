@@ -69,84 +69,69 @@ const createMessageElement = (content, ...classes) =>{
 // Ela recebe como parâmetro o balão de mensagem "pensando..." (incomingMessageDiv)
 // para saber qual elemento na tela ela deve atualizar.
 const generateBotResponse = async (incomingMessageDiv) => {
-
-    // Dentro do balão "pensando...", ele encontra o lugar exato onde o texto
-    // da resposta será escrito (o elemento com a classe .message-text).
     const messageElement = incomingMessageDiv.querySelector(".message-text");
-
-    // Define o endereço do nossa Função Serverless no Vercel.
-    // É para este endereço que o nosso frontend vai enviar o pedido de mensagem.
     const localApiUrl = "/api/groq";
 
-    // Este objeto é o "formulário de pedido" que vamos enviar.
-    // Ele contém todas as instruções sobre a nossa requisição.   
+    // Limpa o conteúdo do balão (remove os pontinhos)
+    messageElement.innerHTML = ""; 
+    let botResponseText = ""; // Variável para montar a resposta completa
+
     const requestOptions = {
-        //O Método POST Usado para ENVIAR dados para o servidor.
         method: "POST",
-        //Os Cabeçalhos com os metadados que descrevem nosso pedido.
-        headers: { 
-            // Avisa ao servidor que o tipo de conteudo que está sendo enviado é no formato JSON.
-            "Content-Type": "application/json" 
-        },
-        // O contéudo do pedido: os dados que estamos enviando.
-        body: JSON.stringify({
-            // Enviamos o array 'chatHistory' dentro de um objeto, com a chave 'history'.
-            history: chatHistory
-        })
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ history: chatHistory })
     };
 
     try {
-        // A palavra 'await' PAUSA a função aqui e fica esperando a resposta da internet.
-        // O fetch() envia nosso pedido (requestOptions) para o nosso Serverless (localApiUrl).
         const response = await fetch(localApiUrl, requestOptions);
-
-        // 'await response.json()' pega a resposta (que vem como texto)
-        // e a converte em um objeto JavaScript que podemos usar.
-        //const data = await response.json();
-        const data = response.body.getReader();
-        // Se o nosso backend nos retornou um objeto com a propriedade 'error',
-        // nós criamos um novo erro para pular direto para o bloco 'catch'.
-        if (data.error) {
-            throw new Error(data.error.message);
+        if (!response.ok) {
+            throw new Error('A resposta da rede não foi "ok".');
         }
 
-        // Aqui aconteceu uma verificação de segurança contra respostas vazias da IA.
-        // Ele checa se a propriedade 'candidates' existe na resposta.
-        if (data.candidates && data.candidates.length > 0) {
+        // A MUDANÇA PRINCIPAL: Lendo a resposta como um fluxo de dados
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder(); // Para decodificar os "pedaços" de texto
+        
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) break; // O fluxo terminou
 
-            // Se tudo estiver certo, extraímos o texto da resposta da IA.
-            const botResponseText = data.candidates[0].content.parts[0].text;
-
-            // Colocamos o texto da resposta no balão de mensagem, substituindo os pontinhos.
-            //messageElement.innerText = botResponseText;
-            messageElement.innerHTML = marked.parse(botResponseText);
-            // Adicionamos a resposta do bot ao nosso vetor histórico para guardar o contexto.
-            chatHistory.push({
-                role: "model",
-                parts: [{ text: botResponseText }]
-            });
-        } else {
-            // Se a resposta veio sem 'candidates', avisamos o usuário.
-            console.error("Resposta da API sem 'candidates':", data);
-            messageElement.innerText = "Desculpe, não consegui gerar uma resposta. Tente reformular sua pergunta.";
+            const chunk = decoder.decode(value);
+            // O streaming da Groq/OpenAI envia múltiplos JSONs em um fluxo, separados por "data: "
+            const lines = chunk.split('\n');
+            for (const line of lines) {
+                if (line.startsWith('data: ')) {
+                    const jsonStr = line.substring(6);
+                    if (jsonStr.trim() === '[DONE]') continue; // Fim do fluxo de dados
+                    try {
+                        const parsed = JSON.parse(jsonStr);
+                        const textChunk = parsed.choices[0]?.delta?.content || "";
+                        if (textChunk) {
+                            botResponseText += textChunk; // Monta a resposta completa
+                            // Usa marked.parse para renderizar Markdown em tempo real
+                            messageElement.innerHTML = marked.parse(botResponseText); 
+                            // Rola o chat para baixo a cada novo pedaço
+                            chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "auto" });
+                        }
+                    } catch (e) {
+                        // Ignora erros de parsing de JSON incompletos, que são normais em streaming
+                    }
+                }
+            }
         }
+        
+        // Adiciona a resposta completa do bot ao histórico APENAS no final
+        chatHistory.push({
+            role: "model",
+            parts: [{ text: botResponseText }]
+        });
 
     } catch (error) {
-        // Se qualquer linha dentro do 'try' falhar, o código pula para cá.
-        // Imprime o erro técnico no console do navegador para o desenvolvedor ver.
         console.error("Erro:", error);
-
-         // Mostramos uma mensagem de erro amigável para o usuário.
         messageElement.innerText = "Oops! Algo deu errado. Tente novamente.";
         messageElement.style.color = "#ff0000";
     } finally {
-
-        // Este bloco executa SEMPRE, não importa se deu sucesso ou erro.
-        // Remove a classe 'thinking' para parar a animação dos pontinhos.
-        incomingMessageDiv.classList.remove("thinking");
-
-        // Garante que a janela do chat role para baixo para mostrar a mensagem.
-        chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
+        incomingMessageDiv.classList.remove("thinking"); // Remove a classe que talvez controlasse a animação
     }
 };
 

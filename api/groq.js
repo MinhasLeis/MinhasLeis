@@ -51,32 +51,23 @@ export default async function handler(request, response) {
 
     //O 'await fetch' envia o pedido para o Groq e espera a resposta.
     const groqResponse = await fetch(API_URL, groqRequestOptions);
-    const data = await groqResponse.json(); // Acontece uma conversão da resposta para um objeto JavaScript.
+    
+    //const data = await groqResponse.json(); // Acontece uma conversão da resposta para um objeto JavaScript.
 
-    // traduzimos a resposta da Groq de volta 
-    // para o formato que nosso frontend entenda.
+    return new Response(groqResponse.body, {
+      headers: {
+        'Content-Type': 'text/event-stream',
+      },
+    });
 
-    if (data.choices && data.choices.length > 0) {
-
-      // Pega o texto da resposta.
-      const botResponse = data.choices[0].message.content;
-
-      // Reenvia a resposta no formato { candidates: [...] } que o testeChatBot.js saibe ler.
-      response.status(200).json({
-        candidates: [{ content: { parts: [{ text: botResponse }] } }]
+    } catch (error) {
+      console.error("Erro na função serverless (Groq):", error);
+      // Em caso de erro, retornamos um status 500
+      return new Response(JSON.stringify({ error: "Erro ao comunicar com a IA." }), {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
-    } else {
-      // Se a resposta do Groq vier vazia ou com um formato inesperado, geramos um erro.
-      console.error("Resposta inesperada da Groq:", data);
-      throw new Error("A resposta da API da Groq não veio no formato esperado.");
     }
-
-  } catch (error) {
-    // Se qualquer coisa no bloco 'try' falhar, o código pula para cá.
-    // Registra o erro técnico nos logs da Vercel para você depurar.
-    console.error("Erro na função serverless (Groq):", error);
-
-    // Envia uma resposta de erro genérica e segura de volta para o frontend.
-    response.status(500).json({ error: "Erro ao comunicar com a IA." });
   }
-}
