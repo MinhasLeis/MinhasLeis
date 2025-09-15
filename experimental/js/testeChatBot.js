@@ -84,7 +84,6 @@ const generateBotResponse = async (incomingMessageDiv) => {
     try {
         const response = await fetch(localApiUrl, requestOptions);
 
-        // A MUDANÇA CRUCIAL ESTÁ AQUI:
         // Se a resposta não for 'ok' (ex: status 500, 400, etc.),
         // nós tratamos como um erro JSON antes de tentar o streaming.
         if (!response.ok) {
@@ -204,3 +203,21 @@ messageInput.addEventListener("keydown", (e) => {
 //não precisa checar qual foi a tecla pressionada
 sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
 
+window.addEventListener("load", () => {
+    // Esta função será executada assim que a página terminar de carregar.
+    
+    // Passa por cada item do histórico inicial
+    chatHistory.forEach(turn => {
+        // Renderiza apenas as mensagens do 'model' (bot) que já devem aparecer
+        if (turn.role === 'model') {
+            const messageDiv = createMessageElement(
+                `<div class="message-text">${turn.parts[0].text}</div>`, 
+                "bot-message"
+            );
+            chatBody.appendChild(messageDiv);
+        }
+    });
+
+    // Garante que a rolagem esteja no final
+    chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
+});
