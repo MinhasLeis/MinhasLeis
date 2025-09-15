@@ -43,7 +43,8 @@ export default async function handler(request, response) {
       body: JSON.stringify({
         //Especifica o modelo(model) que queremos usar e enviamos as mensagens(messages) transformadas.
         model: "llama-3.3-70b-versatile", // É possivel trocar por outros modelos do Groq aqui.
-        messages: messagesForGroq
+        messages: messagesForGroq,
+        temperature: 0.3
       })
     };
 
