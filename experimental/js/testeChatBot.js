@@ -72,9 +72,6 @@ const generateBotResponse = async (incomingMessageDiv) => {
     const messageElement = incomingMessageDiv.querySelector(".message-text");
     const localApiUrl = "/api/groq";
 
-    messageElement.innerHTML = "";
-    let botResponseText = "";
-
     const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -83,57 +80,36 @@ const generateBotResponse = async (incomingMessageDiv) => {
 
     try {
         const response = await fetch(localApiUrl, requestOptions);
+        // VOLTAMOS A USAR .json() para esperar a resposta completa do nosso backend
+        const data = await response.json();
 
-        // Se a resposta não for 'ok' (ex: status 500, 400, etc.),
-        // nós tratamos como um erro JSON antes de tentar o streaming.
-        if (!response.ok) {
-            const errorData = await response.json(); // Tenta ler o corpo do erro como JSON
-            throw new Error(errorData.error || "A resposta da rede não foi 'ok'.");
+        if (data.error) {
+            throw new Error(data.error.message);
         }
 
-        // Se a resposta for 'ok' (status 200), aí sim procedemos com o streaming.
-        const reader = response.body.getReader();
-        const decoder = new TextDecoder();
-        
-        while (true) {
-            const { done, value } = await reader.read();
-            if (done) break;
-
-            const chunk = decoder.decode(value);
-            const lines = chunk.split('\n');
-            for (const line of lines) {
-                if (line.startsWith('data: ')) {
-                    const jsonStr = line.substring(6);
-                    if (jsonStr.trim() === '[DONE]') continue;
-                    try {
-                        const parsed = JSON.parse(jsonStr);
-                        const textChunk = parsed.choices[0]?.delta?.content || "";
-                        if (textChunk) {
-                            botResponseText += textChunk;
-                            messageElement.innerHTML = marked.parse(botResponseText);
-                            chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "auto" });
-                        }
-                    } catch (e) {
-                        // Ignora erros de parsing de JSON incompletos
-                    }
-                }
-            }
+        if (data.candidates && data.candidates.length > 0) {
+            const botResponseText = data.candidates[0].content.parts[0].text;
+            messageElement.innerText = botResponseText;
+            
+            chatHistory.push({
+                role: "model",
+                parts: [{ text: botResponseText }]
+            });
+        } else {
+            console.error("Resposta da API sem 'candidates':", data);
+            messageElement.innerText = "Desculpe, não consegui gerar uma resposta.";
         }
-        
-        chatHistory.push({
-            role: "model",
-            parts: [{ text: botResponseText }]
-        });
 
     } catch (error) {
         console.error("Erro:", error);
-        // Agora, o erro capturado aqui será mais claro
-        messageElement.innerText = `Oops! Algo deu errado. (${error.message})`;
+        messageElement.innerText = "Oops! Algo deu errado. Tente novamente.";
         messageElement.style.color = "#ff0000";
     } finally {
         incomingMessageDiv.classList.remove("thinking");
+        chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
     }
 };
+
 
 
 /*
