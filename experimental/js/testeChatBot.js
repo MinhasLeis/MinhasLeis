@@ -72,9 +72,8 @@ const generateBotResponse = async (incomingMessageDiv) => {
     const messageElement = incomingMessageDiv.querySelector(".message-text");
     const localApiUrl = "/api/groq";
 
-    // Limpa o conteúdo do balão (remove os pontinhos)
-    messageElement.innerHTML = ""; 
-    let botResponseText = ""; // Variável para montar a resposta completa
+    messageElement.innerHTML = "";
+    let botResponseText = "";
 
     const requestOptions = {
         method: "POST",
@@ -84,43 +83,44 @@ const generateBotResponse = async (incomingMessageDiv) => {
 
     try {
         const response = await fetch(localApiUrl, requestOptions);
+
+        // A MUDANÇA CRUCIAL ESTÁ AQUI:
+        // Se a resposta não for 'ok' (ex: status 500, 400, etc.),
+        // nós tratamos como um erro JSON antes de tentar o streaming.
         if (!response.ok) {
-            throw new Error('A resposta da rede não foi "ok".');
+            const errorData = await response.json(); // Tenta ler o corpo do erro como JSON
+            throw new Error(errorData.error || "A resposta da rede não foi 'ok'.");
         }
 
-        // A MUDANÇA PRINCIPAL: Lendo a resposta como um fluxo de dados
+        // Se a resposta for 'ok' (status 200), aí sim procedemos com o streaming.
         const reader = response.body.getReader();
-        const decoder = new TextDecoder(); // Para decodificar os "pedaços" de texto
+        const decoder = new TextDecoder();
         
         while (true) {
             const { done, value } = await reader.read();
-            if (done) break; // O fluxo terminou
+            if (done) break;
 
             const chunk = decoder.decode(value);
-            // O streaming da Groq/OpenAI envia múltiplos JSONs em um fluxo, separados por "data: "
             const lines = chunk.split('\n');
             for (const line of lines) {
                 if (line.startsWith('data: ')) {
                     const jsonStr = line.substring(6);
-                    if (jsonStr.trim() === '[DONE]') continue; // Fim do fluxo de dados
+                    if (jsonStr.trim() === '[DONE]') continue;
                     try {
                         const parsed = JSON.parse(jsonStr);
                         const textChunk = parsed.choices[0]?.delta?.content || "";
                         if (textChunk) {
-                            botResponseText += textChunk; // Monta a resposta completa
-                            // Usa marked.parse para renderizar Markdown em tempo real
-                            messageElement.innerHTML = marked.parse(botResponseText); 
-                            // Rola o chat para baixo a cada novo pedaço
+                            botResponseText += textChunk;
+                            messageElement.innerHTML = marked.parse(botResponseText);
                             chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "auto" });
                         }
                     } catch (e) {
-                        // Ignora erros de parsing de JSON incompletos, que são normais em streaming
+                        // Ignora erros de parsing de JSON incompletos
                     }
                 }
             }
         }
         
-        // Adiciona a resposta completa do bot ao histórico APENAS no final
         chatHistory.push({
             role: "model",
             parts: [{ text: botResponseText }]
@@ -128,10 +128,11 @@ const generateBotResponse = async (incomingMessageDiv) => {
 
     } catch (error) {
         console.error("Erro:", error);
-        messageElement.innerText = "Oops! Algo deu errado. Tente novamente.";
+        // Agora, o erro capturado aqui será mais claro
+        messageElement.innerText = `Oops! Algo deu errado. (${error.message})`;
         messageElement.style.color = "#ff0000";
     } finally {
-        incomingMessageDiv.classList.remove("thinking"); // Remove a classe que talvez controlasse a animação
+        incomingMessageDiv.classList.remove("thinking");
     }
 };
 
