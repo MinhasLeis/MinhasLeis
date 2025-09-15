@@ -31,6 +31,9 @@ const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-
 
 const generateBorResponse =async (incomingMessageDiv) => {
     const messageElement = incomingMessageDiv.querySelector(".message-text");
+    
+    const localApiUrl = "/api/gemini";
+
     chatHistory.push({
                 role: "user",
                 parts: [{text: userData.message}]
@@ -40,12 +43,12 @@ const generateBorResponse =async (incomingMessageDiv) => {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify({
-            contents: chatHistory
+            history: chatHistory
         })
     }
 
     try{
-        const response = await fetch(API_URL, requestOptions);
+        const response = await fetch(localApiUrl, requestOptions);
         const data = await response.json();
         if(!response.ok) throw new Error(data.error.message);
 
