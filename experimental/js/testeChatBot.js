@@ -111,57 +111,29 @@ sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
     Função responsável por lidar com o processo de envio de mensagem do usuário
 */
 
-const handleOutgoingMessage = (e) =>{
-    //Por padrão quando o user clica no 'enviar' de um form html, a o navegador acaba por recarregar a página
-    //O e.preventDefault impede isso básicamente, impedindo que o chat seja interrompido 
+const handleOutgoingMessage = (e) => {
     e.preventDefault();
+    const message = messageInput.value.trim();
+    if (!message) return; // Não envia mensagens vazias
 
-    //Dentro a propriedade 'message' do objeto 'userData' é atribuido tudo que estiver no campo de texto 'messageInput'através do '.value' e utiliza o 'trim' para limpar espaços vazios no inicio e no final do texto
-    userData.message = messageInput.value.trim();
+    // <<--- ESTA É A LINHA MAIS IMPORTANTE! ELA PRECISA ESTAR AQUI.
+    // 1. Salva a mensagem do usuário no histórico PRIMEIRO.
+    chatHistory.push({ role: "user", parts: [{ text: message }] });
 
-    //Limpando a caixa de texto depois que a mensagem é enviada
-    messageInput.value = "";
+    // 2. Exibe a mensagem do usuário na tela.
+    const outgoingMessageDiv = createMessageElement(`<div class="message-text">${message}</div>`, "user-message");
+    chatBody.appendChild(outgoingMessageDiv);
+    
+    messageInput.value = ""; // Limpa o input
+    chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
 
-    //Constante que recebe um texto ja escrito uma estrutura HTML div ja com a classe
-    //'message-text' para ser estilizada quando for criada através do innerHTML na função
-    // 'createMessageElement'
-    const messageContent = `<div class="message-text"></div>`;
-
-    //Para depois ele criar a mensagem com o conteudo dessa estrutura e aplica a classe 'user-message' ja que essa função lida com o envio de mensagem do lado do usuário
-    const outgoingMessageDiv = createMessageElement(messageContent, "user-message");
-
-
-    //Aqui o 'outgoingMessageDiv' criado anteriormente, usa o querySelector pra ja pegar o 
-    // ponto de referencia daa div que acabou de ser criada com a classe 'message-text'
-    //nisso, ele define que a propriedade 'textContent' receba o valor de da propriedade 'message'
-    //do Obejto 'userData'
-    outgoingMessageDiv.querySelector(".message-text").textContent = userData.message
-
-    //Nisso o 'outgoingMessageDiv' que é a mensagem do usuário, é mostrada na div do chat
-    //que é o 'chatBody' visto nas constantes criadadas no começo do script
-    //através da propriedade 'appendChild'
-    chatBody.appendChild(outgoingMessageDiv)
-    chatBody.scrollTo({ top:chatBody.scrollHeight, behavior: "smooth"});
-
-    //É criado um 'Timeout' que é uma função que tem um delay pra rodar
-    //Ela simulação o pensamento do bot pra responder depois desse delay
-    setTimeout(() =>{
-        const messageContent = `<svg class="bot-avatar" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 1024 1024">
-                    <path d="M738.3 287.6H285.7c-59 0-106.8 47.8-106.8 106.8v303.1c0 59 47.8 106.8 106.8 106.8h81.5v111.1c0 .7.8 1.1 1.4.7l166.9-110.6 41.8-.8h117.4l43.6-.4c59 0 106.8-47.8 106.8-106.8V394.5c0-59-47.8-106.9-106.8-106.9zM351.7 448.2c0-29.5 23.9-53.5 53.5-53.5s53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5-53.5-23.9-53.5-53.5zm157.9 267.1c-67.8 0-123.8-47.5-132.3-109h264.6c-8.6 61.5-64.5 109-132.3 109zm110-213.7c-29.5 0-53.5-23.9-53.5-53.5s23.9-53.5 53.5-53.5 53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5zM867.2 644.5V453.1h26.5c19.4 0 35.1 15.7 35.1 35.1v121.1c0 19.4-15.7 35.1-35.1 35.1h-26.5zM95.2 609.4V488.2c0-19.4 15.7-35.1 35.1-35.1h26.5v191.3h-26.5c-19.4 0-35.1-15.7-35.1-35.1zM561.5 149.6c0 23.4-15.6 43.3-36.9 49.7v44.9h-30v-44.9c-21.4-6.5-36.9-26.3-36.9-49.7 0-28.6 23.3-51.9 51.9-51.9s51.9 23.3 51.9 51.9z"></path>
-                </svg>
-                <div class="message-text">
-                    <div class="thinking-indicator">
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                    </div>
-                </div>`;
-
-        const incomingMessageDiv = createMessageElement(messageContent, "bot-message", "thinking");
-        chatBody.appendChild(incomingMessageDiv);
-        chatBody.scrollTo({ top:chatBody.scrollHeight, behavior: "smooth"});
-        generateBotResponse(incomingMessageDiv);
-    },600)//delay em milisegundos para rodar a função
+    // 3. Mostra o "pensando..." e chama a função do bot DEPOIS.
+    setTimeout(() => {
+        const thinkingMessageDiv = createMessageElement(`<div class="message-text"><div class="thinking-indicator"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>`, "bot-message", "thinking");
+        chatBody.appendChild(thinkingMessageDiv);
+        chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
+        generateBotResponse(thinkingMessageDiv);
+    }, 600);
 };
 
 
