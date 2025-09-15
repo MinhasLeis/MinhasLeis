@@ -32,7 +32,7 @@ const chatHistory = [];
 // Renomeado para "Bot" e com a lógica de verificação
 const generateBotResponse = async (incomingMessageDiv) => {
     const messageElement = incomingMessageDiv.querySelector(".message-text");
-    const localApiUrl = "/api/gemini";
+    const localApiUrl = "/api/groq";
 
     const requestOptions = {
         method: "POST",
