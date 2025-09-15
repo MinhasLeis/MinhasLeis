@@ -24,7 +24,17 @@ const userData = {
 
 //Constante que é um vetor para armazenar historico da conversa e 
 // o chat lembrar do que ja foi falado
-const chatHistory = [];
+const chatHistory = [
+    {
+        //Adicionando um contexto para que a IA já saiba sobre o que falar e não falar
+        role: "user",
+        parts: [{text: "A partir de agora, você é a Maria, uma assistente jurídico virtual especializado em direito brasileiro. Você deve se comunicar de forma clara e objetiva. Recuse-se a responder perguntas que não sejam sobre o sistema judiciário ou leis do Brasil. Comece a primeira conversa se apresentando formalmente e oferecendo ajuda."}]
+    },
+    {
+        role: "model",
+        part: [{text: "Olá! Eu sou a Maria, sua assistente jurídico virtual. Como posso auxiliá-la com suas dúvidas sobre direitos hoje?" }]
+    }
+];
 
 
 /* 
