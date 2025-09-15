@@ -28,7 +28,7 @@ export default async function handler(request, response) {
       },
       body: JSON.stringify({
         // 5. CORPO: Especificamos o modelo que queremos usar e enviamos as mensagens transformadas.
-        model: "llama3-8b-8192", // Um dos modelos Llama 3 disponíveis na Groq
+        model: "llama3-70b-8192", // Um dos modelos Llama 3 disponíveis na Groq
         messages: messagesForGroq
       })
     };
