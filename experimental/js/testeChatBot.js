@@ -32,7 +32,7 @@ const chatHistory = [
     },
     {
         role: "model",
-        part: [{text: "Olá! Eu sou a Maria, sua assistente jurídico virtual. Como posso auxiliá-la com suas dúvidas sobre direitos hoje?" }]
+        parts: [{text: "Olá! Eu sou a Maria, sua assistente jurídico virtual. Como posso auxiliá-la com suas dúvidas sobre direitos hoje?" }]
     }
 ];
 
