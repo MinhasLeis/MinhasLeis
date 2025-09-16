@@ -122,7 +122,6 @@ main{
 
 .caixa-chat .mensagem-bot .mensagem-texto{
     background: #F2F2FF;
-    font-family: "Inter";
     border-radius: 13px 13px 13px 3px;
 }
 
@@ -158,7 +157,6 @@ main{
     gap: 4px;
     flex-direction: row;
     padding-block: 0px;
-    font-family: "Inter";
     
 }
 
@@ -201,6 +199,11 @@ main{
 
     }
 
+}
+
+.caixa-chat .mensagem-bot .mensagem-texto,
+.caixa-chat .mensagem-bot .mensagem-texto * {
+    font-family: "Inter", sans-serif;
 }
 
 .mensagem-texto p{
