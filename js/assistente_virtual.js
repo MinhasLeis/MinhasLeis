@@ -39,7 +39,7 @@ const chatHistory = [
 const createMessageElement = (content, ...classes) =>{
     const div = document.createElement("div");
     
-    div.classList.add("message", ...classes);
+    div.classList.add("mensagem", ...classes);
 
     div.innerHTML = content
 
@@ -131,7 +131,7 @@ const handleOutgoingMessage = (e) => {
     }
 
 
-    const outgoingMessageDiv = createMessageElement(`<div class="message-text">${message}</div>`, "mensagem-usuario");
+    const outgoingMessageDiv = createMessageElement(`<div class="mensagem-texto">${message}</div>`, "mensagem-usuario");
     caixaChat.appendChild(outgoingMessageDiv);
     
     mensagemInput.value = ""; 

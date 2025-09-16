@@ -107,7 +107,7 @@ main{
 
 .caixa-chat .mensagem{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap:11px;
     
 }
