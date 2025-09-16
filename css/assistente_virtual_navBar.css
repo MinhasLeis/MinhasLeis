@@ -112,3 +112,12 @@
     }
     
 }
+
+
+
+@media (max-width: 800px) {
+    #barraNavegacaoAssistente{
+        display: none;
+    }
+    
+}
