@@ -28,6 +28,72 @@ const chatHistory = [
     }
 ];
 
+// DADOS DE EXEMPLO DOS ADVOGADOS (Adicione logo após o chatHistory)
+const advogados = [
+    {
+        nome: "Fernando",
+        fotoURL: "https://i.imgur.com/example.png", // Substitua pela URL da imagem real
+        avaliacoes: "Avaliações (189) ★★★★★",
+        especialidades: "Advogado trabalhista, Civil, Propriedade Intelectual e Industrial."
+    },
+    {
+        nome: "Mariana",
+        fotoURL: "https://i.imgur.com/example2.png", // Substitua pela URL da imagem real
+        avaliacoes: "Avaliações (215) ★★★★★",
+        especialidades: "Direito do Consumidor, Direito de Família."
+    },
+    {
+        nome: "Lucas",
+        fotoURL: "https://i.imgur.com/example3.png", // Substitua pela URL da imagem real
+        avaliacoes: "Avaliações (150) ★★★★★",
+        especialidades: "Direito Penal, Direito Empresarial."
+    },
+    {
+        nome: "Beatriz",
+        fotoURL: "https://i.imgur.com/example4.png", // Substitua pela URL da imagem real
+        avaliacoes: "Avaliações (302) ★★★★☆",
+        especialidades: "Direito Tributário, Direito Imobiliário."
+    }
+];
+
+// FUNÇÃO PARA CRIAR E EXIBIR O MENU DE ADVOGADOS
+const gerarMenuAdvogados = () => {
+    // Texto introdutório
+    const introContent = `
+        <div class="mensagem mensagem-bot">
+            <div class="avatar-bot"></div>
+            <div class="mensagem-texto">
+                Encontrei alguns advogados que podem te ajudar nesse assunto. Veja as opções abaixo e escolha o profissional que melhor atende às suas necessidades. Você pode conferir as avaliações, áreas de atuação e clicar em Ver Perfil para iniciar o contato.
+            </div>
+        </div>`;
+    
+    // Mapeia os dados dos advogados para criar os cards em HTML
+    const cardsHtml = advogados.map(adv => `
+        <div class="advogado-card">
+            <img src="${adv.fotoURL}" alt="Foto de ${adv.nome}" class="advogado-foto">
+            <p class="advogado-nome">${adv.nome}</p>
+            <p class="advogado-avaliacoes">${adv.avaliacoes}</p>
+            <p class="advogado-especialidades">${adv.especialidades}</p>
+            <button class="advogado-ver-perfil-btn">VER PERFIL</button>
+        </div>
+    `).join('');
+
+    // Cria o container principal do menu
+    const menuContent = `
+        <div class="menu-advogados-container">
+            <div class="advogados-lista">
+                ${cardsHtml}
+            </div>
+        </div>`;
+
+    // Adiciona os elementos ao chat
+    caixaChat.innerHTML += introContent; // Adiciona a mensagem de introdução
+    caixaChat.innerHTML += menuContent;  // Adiciona o menu com os cards
+
+    // Rola a tela para o final para mostrar o conteúdo novo
+    caixaChat.scrollTo({ top: caixaChat.scrollHeight, behavior: "smooth" });
+};
+
 /* 
     FUNÇÃO 1
     Função que cria os balões de mensagens, o que ela faz é o seguinte:
@@ -124,29 +190,42 @@ const handleOutgoingMessage = (e) => {
     const message = mensagemInput.value.trim();
     if (!message) return; // Não envia mensagens vazias
 
-    chatHistory.push({ role: "user", parts: [{ text: message }] });
+    // Palavras-chave para detectar a confirmação do usuário
+    const confirmationKeywords = ['sim', 'quero', 'gostaria', 'pode ser', 'chamar', 'advogado', 'localizar', 'encontrar'];
+    const messageLowerCase = message.toLowerCase();
 
-    if(chatHistory.length > 15){
-        chatHistory.splice(2, 2)
-    }
+    // Verifica se a mensagem contém alguma das palavras-chave
+    const isConfirmation = confirmationKeywords.some(keyword => messageLowerCase.includes(keyword));
 
-
+    // Exibe a mensagem do usuário na tela
     const outgoingMessageDiv = createMessageElement(`<div class="mensagem-texto">${message}</div>`, "mensagem-usuario");
     caixaChat.appendChild(outgoingMessageDiv);
-    
-    mensagemInput.value = ""; 
+    mensagemInput.value = "";
     caixaChat.scrollTo({ top: caixaChat.scrollHeight, behavior: "smooth" });
+
+    // Se for uma confirmação, gera o menu de advogados
+    if (isConfirmation) {
+        setTimeout(() => {
+            gerarMenuAdvogados();
+        }, 600); // Um pequeno delay para simular o "pensamento"
+        return; // Para a execução para não enviar a confirmação para a IA
+    }
+
+    // Se não for uma confirmação, continua o fluxo normal com a IA
+    chatHistory.push({ role: "user", parts: [{ text: message }] });
+
+    if (chatHistory.length > 15) {
+        chatHistory.splice(2, 2);
+    }
 
     setTimeout(() => {
         const messageContent = `<div class="avatar-bot"></div><div class="mensagem-texto"><div class="indicador-pensamento"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>`;
-
         const indicadorPensamentoMessageDiv = createMessageElement(messageContent, "mensagem-bot", "indicador-pensamento");
         caixaChat.appendChild(indicadorPensamentoMessageDiv);
         caixaChat.scrollTo({ top: caixaChat.scrollHeight, behavior: "smooth" });
         generateBotResponse(indicadorPensamentoMessageDiv);
     }, 600);
 };
-
 
 //FUNÇÕES DE EVENT LISTENERS 
 
