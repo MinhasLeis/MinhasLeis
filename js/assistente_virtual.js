@@ -109,7 +109,7 @@ const generateBotResponse = async (incomingMessageDiv) => {
         messageElement.style.color = "#ff0000";
     } finally {
 
-        incomingMessageDiv.classList.remove("indicadorPensamento");
+        incomingMessageDiv.classList.remove("indicador-pensamento");
 
         caixaChat.scrollTo({ top: caixaChat.scrollHeight, behavior: "smooth" });
     }
