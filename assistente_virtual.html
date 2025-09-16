@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/assistente_virtual.css">
     <link rel="stylesheet" href="./css/assistente_virtual_navBar.css">
     <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
 
 </head>
 <body>
@@ -48,10 +49,47 @@
         </nav>
         <div id="content">
             <img src="" alt="" id="assistentePerfil">
+
+            <div class="caixa-chat">
+                <div class="mensagem mensagem-bot">
+                    <div class="avatar-bot"></div>
+                    <div class="mensagem-texto">
+                        Olá, como posso ajudar?
+                    </div>
+
+                </div>
+                <div class="mensagem mensagem-bot">
+                    <div class="avatar-bot"></div>
+                    <div class="mensagem-texto">
+                        <div class="indicador-pensamento">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="mensagem mensagem-usuario">
+                    <div class="mensagem-texto">
+                        Olá, como posso ajudar?
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="caixa-formulario">
+                <form action="#" class="formulario-chat">
+                    <textarea placeholder="Sua mensagem..." class="mensagem-input" required></textarea>
+                    <div class="botoes-do-chat">
+                        <button type="button" id="gravar-voz"></button>
+                        <button type="submit"class="material-symbols-rounded" id="enviar-mensagem">arrow_upward</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </main>
 
-
-        
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script src="./js/assistente_virtual.js"></script>
 </body>
 </html>
