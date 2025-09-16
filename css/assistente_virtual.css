@@ -30,7 +30,7 @@ main{
     flex-direction: column;
     height: 90%;
     flex-grow: 1;
-    border: 1px solid red;
+
     min-width: 0;
     transition: .25s ease-in;
 }
@@ -46,7 +46,7 @@ main{
     flex-direction: column;
     scrollbar-width: thin;
     scrollbar-color: #ccccf5 transparent;
-    border: 1px solid blue;
+
 }
 .caixa-formulario{
     bottom: 0;
@@ -55,7 +55,6 @@ main{
     justify-content: center;
     align-items: center;
     width: 100%;
-    background: #fff;
     padding: 15px 22px 20px;
 }
 .formulario-chat{
@@ -63,7 +62,7 @@ main{
     display: flex;
     width: 70%;
     align-items: flex-end;
-    background: #fff;
+    background-color: #F2F2FF;
     border-radius: 35px 3px 35px 3px;
     outline: 1px solid #CCCCE5;
     
@@ -78,6 +77,7 @@ main{
     width: 100%;
     overflow: hidden;
     font-size: 0.95rem;
+
     padding: 20px 0px 6px 20px;
     border-radius: inherit; 
 
@@ -122,6 +122,7 @@ main{
 
 .caixa-chat .mensagem-bot .mensagem-texto{
     background: #F2F2FF;
+    font-family: "Inter";
     border-radius: 13px 13px 13px 3px;
 }
 
