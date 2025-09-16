@@ -2,6 +2,7 @@
     margin: 0;
     box-sizing: border-box;
     padding: 0;
+
 }
 
 body{
@@ -9,10 +10,189 @@ body{
     width: 100vw;
     height: 100vh;
     background-color: rgb(145, 213, 213);
+    overflow: hidden;
 }
 
 main{
     position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0px 32px;
+    gap: 32px;
     width: 100%;
     height: 100%;
+
+}
+
+#content{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    flex-grow: 1;
+    border: 1px solid red;
+    min-width: 0;
+    transition: .25s ease-in;
+}
+
+.caixa-chat{
+
+    flex: 1;
+    padding: 25px 22px;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 82px;
+    overflow-y: auto;
+    flex-direction: column;
+    scrollbar-width: thin;
+    scrollbar-color: #ccccf5 transparent;
+    border: 1px solid blue;
+}
+.caixa-formulario{
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: #fff;
+    padding: 15px 22px 20px;
+}
+.formulario-chat{
+
+    display: flex;
+    width: 70%;
+    align-items: flex-end;
+    background: #fff;
+    border-radius: 35px 3px 35px 3px;
+    outline: 1px solid #CCCCE5;
+    
+
+}
+
+.mensagem-input{
+    border: none;
+    outline: none;
+    resize: none;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    font-size: 0.95rem;
+    padding: 20px 0px 6px 20px;
+    border-radius: inherit; 
+
+}
+
+.botoes-do-chat{
+    display: flex;
+    height: 47px;
+    gap: 12px;
+    align-items: center;
+    padding-right: 12px;
+
+}
+
+
+.botoes-do-chat button{
+    border: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: white;
+    background: blueviolet;
+    border-radius: 50%;
+    transition: 0.2s ease;
+    margin-bottom: 20px;
+
+}
+
+.caixa-chat .mensagem{
+    display: flex;
+    align-items: center;
+    gap:11px;
+    
+}
+
+.caixa-chat .mensagem .mensagem-texto{
+    padding: 12px 16px;
+    max-width: 75%;
+    font-size: 0.95rem;
+    background: #F2F2FF;
+
+}
+
+.caixa-chat .mensagem-bot .mensagem-texto{
+    background: #F2F2FF;
+    border-radius: 13px 13px 13px 3px;
+}
+
+
+.caixa-chat .mensagem-usuario .mensagem-texto{
+    color: #fff;
+    background: #5350C4;
+    border-radius: 13px 13px 3px 13px;
+}
+
+.caixa-chat .mensagem-usuario{
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.avatar-bot{
+    background-image: url("../assets/img/fotoAssistenteMaria.svg");
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+    padding: 6px;
+    fill: #fff;
+    align-self: flex-end;
+    margin-bottom: 2px;
+    background-color: #5350C4;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+
+.caixa-chat .mensagem-bot .indicador-pensamento {
+    display: flex;
+    gap: 4px;
+    flex-direction: row;
+    padding-block: 0px;
+    
+}
+
+.caixa-chat .mensagem-bot .indicador-pensamento .dot{
+    height: 7px;
+    width: 7px;
+    opacity: 0.7;
+    border-radius: 50%;
+    background: #6f6bc2;
+    animation: dotPulse 1.8s ease-in-out infinite
+}
+
+.caixa-chat .mensagem-bot .indicador-pensamento .dot:nth-child(1){
+    animation-delay: 0.2s;
+}
+
+.caixa-chat .mensagem-bot .indicador-pensamento .dot:nth-child(2){
+    animation-delay: 0.3s;
+}
+
+.caixa-chat .mensagem-bot .indicador-pensamento .dot:nth-child(3){
+    animation-delay: 0.4s;
+}
+
+
+@keyframes dotPulse{
+    0%, 44%{
+        transform: translateY(0)
+    }
+    28%{
+        opacity: 0.4;
+        transform: translateY(-4px)
+    }
+    44%{
+        opacity: 0.2;
+
+    }
+
 }
