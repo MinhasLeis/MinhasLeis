@@ -233,3 +233,13 @@ main{
 .mensagem-texto > *:last-child {
   margin-bottom: 0;
 }
+
+
+
+
+@media (max-width: 800px) {
+    .caixa-chat{
+        scrollbar-width: none;
+    }
+    
+}
