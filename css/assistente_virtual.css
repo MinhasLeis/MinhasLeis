@@ -253,4 +253,7 @@ main{
         display:none;
     }
     
+    .mensagem-texto{
+          max-width: 100%;
+    }
 }
