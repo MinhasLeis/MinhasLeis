@@ -56,7 +56,7 @@ const createMessageElement = (content, ...classes) =>{
 
 const generateBotResponse = async (incomingMessageDiv) => {
 
-    const messageElement = incomingMessageDiv.querySelector(".message-text");
+    const messageElement = incomingMessageDiv.querySelector(".mensagem-texto");
 
 
     const localApiUrl = "/api/groq";
