@@ -242,4 +242,8 @@ main{
         scrollbar-width: none;
     }
     
+    .formulario-chat{
+        width: 100%;
+    }
+    
 }
