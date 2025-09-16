@@ -109,7 +109,7 @@ const generateBotResponse = async (incomingMessageDiv) => {
         messageElement.style.color = "#ff0000";
     } finally {
 
-        incomingMessageDiv.classList.remove("thinking");
+        incomingMessageDiv.classList.remove("indicador-pensamento");
 
         caixaChat.scrollTo({ top: caixaChat.scrollHeight, behavior: "smooth" });
     }
@@ -131,18 +131,20 @@ const handleOutgoingMessage = (e) => {
     }
 
 
-    const outgoingMessageDiv = createMessageElement(`<div class="message-text">${message}</div>`, "user-message");
+    const outgoingMessageDiv = createMessageElement(`<div class="message-text">${message}</div>`, "mensagem-usuario");
     caixaChat.appendChild(outgoingMessageDiv);
     
     mensagemInput.value = ""; 
     caixaChat.scrollTo({ top: caixaChat.scrollHeight, behavior: "smooth" });
 
-    setTimeout(() => {
-        const thinkingMessageDiv = createMessageElement(`<div class="message-text"><div class="thinking-indicator"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>`, "bot-message", "thinking");
-        caixaChat.appendChild(thinkingMessageDiv);
-        caixaChat.scrollTo({ top: caixaChat.scrollHeight, behavior: "smooth" });
-        generateBotResponse(thinkingMessageDiv);
-    }, 600);
+setTimeout(() => {
+    const messageContent = `<div class="avatar-bot"></div><div class="message-text"><div class="indicador-pensamento"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>`;
+
+    const indicadorPensamentoMessageDiv = createMessageElement(messageContent, "mensagem-bot", "indicadorPensamento");
+    caixaChat.appendChild(indicadorPensamentoMessageDiv);
+    caixaChat.scrollTo({ top: caixaChat.scrollHeight, behavior: "smooth" });
+    generateBotResponse(indicadorPensamentoMessageDiv);
+}, 600);
 };
 
 

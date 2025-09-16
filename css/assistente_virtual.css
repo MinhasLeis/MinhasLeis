@@ -182,6 +182,10 @@ main{
 }
 
 
+.caixa-chat .mensagem-bot.indicadorPensamento .mensagem-texto {
+    padding: 15px 16px;
+}
+
 @keyframes dotPulse{
     0%, 44%{
         transform: translateY(0)
