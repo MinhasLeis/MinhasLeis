@@ -200,3 +200,31 @@ main{
     }
 
 }
+
+.mensagem-texto p{
+    margin-bottom: 1em;
+}
+
+.mensagem-texto h1,
+.mensagem-texto h2,
+.mensagem-texto h3,
+.mensagem-texto h4 {
+  margin-top: 1.2em;
+  margin-bottom: 0.8em;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.mensagem-texto ul,
+.mensagem-texto ol {
+  padding-left: 25px;
+  margin-bottom: 1em;
+}
+
+.mensagem-texto li {
+  margin-bottom: 0.5em;
+}
+
+.mensagem-texto > *:last-child {
+  margin-bottom: 0;
+}
