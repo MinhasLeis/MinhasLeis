@@ -3,16 +3,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    top: 50%;
-    left: 12px;
-    transform: translateY(-50%);
     background-color: white;
     width: 350px;
     height: 90%;
     border-radius: 0px 35px 0px 35px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, .15);
     transition: .25s ease-in;
+    flex-shrink: 0;
 }
 
 #logo{
@@ -55,7 +52,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-
     width: 90%;
     padding: 8px 32px;
     border-radius: 100px;
@@ -109,19 +105,10 @@
    
 }
 
-@media (max-width: 1000px) {
-    #barraNavegacaoAssistente{
-
-        width: 300px;
-        transition: .25s ease-in;
-    }
-    
-}
 
 @media (max-width: 1000px) {
     #barraNavegacaoAssistente{
         width: 280px;
-        transition: .25s ease-in;
     }
     
 }
