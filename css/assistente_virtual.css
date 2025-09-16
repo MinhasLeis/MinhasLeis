@@ -240,10 +240,13 @@ main{
 @media (max-width: 800px) {
     .caixa-chat{
         scrollbar-width: none;
+        padding: 25px 8px;
     }
     
     .formulario-chat{
         width: 100%;
+        
     }
+    
     
 }
