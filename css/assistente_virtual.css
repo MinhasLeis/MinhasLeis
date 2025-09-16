@@ -238,6 +238,11 @@ main{
 
 
 @media (max-width: 800px) {
+    
+    main{
+        padding: 0px 16px;
+    }
+    
     .caixa-chat{
         scrollbar-width: none;
         padding: 25px 0px;
