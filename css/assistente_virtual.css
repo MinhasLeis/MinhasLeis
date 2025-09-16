@@ -241,11 +241,13 @@ main{
     
     main{
         padding: 0px 16px;
+        
     }
     
     .caixa-chat{
         scrollbar-width: none;
-        padding: 25px 0px;
+        padding: 0px 0px 0px 0px;
+        margin-block: 0;
     }
     
     
