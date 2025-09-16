@@ -137,14 +137,14 @@ const handleOutgoingMessage = (e) => {
     mensagemInput.value = ""; 
     caixaChat.scrollTo({ top: caixaChat.scrollHeight, behavior: "smooth" });
 
-setTimeout(() => {
-    const messageContent = `<div class="avatar-bot"></div><div class="message-text"><div class="indicador-pensamento"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>`;
+    setTimeout(() => {
+        const messageContent = `<div class="avatar-bot"></div><div class="mensagem-texto"><div class="indicador-pensamento"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>`;
 
-    const indicadorPensamentoMessageDiv = createMessageElement(messageContent, "mensagem-bot", "indicadorPensamento");
-    caixaChat.appendChild(indicadorPensamentoMessageDiv);
-    caixaChat.scrollTo({ top: caixaChat.scrollHeight, behavior: "smooth" });
-    generateBotResponse(indicadorPensamentoMessageDiv);
-}, 600);
+        const indicadorPensamentoMessageDiv = createMessageElement(messageContent, "mensagem-bot", "indicadorPensamento");
+        caixaChat.appendChild(indicadorPensamentoMessageDiv);
+        caixaChat.scrollTo({ top: caixaChat.scrollHeight, behavior: "smooth" });
+        generateBotResponse(indicadorPensamentoMessageDiv);
+    }, 600);
 };
 
 
