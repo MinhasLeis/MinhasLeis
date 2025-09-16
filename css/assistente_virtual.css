@@ -243,10 +243,14 @@ main{
         padding: 25px 0px;
     }
     
+    
     .formulario-chat{
         width: 100%;
         
     }
     
+    .avatar-bot{
+        display:none;
+    }
     
 }
