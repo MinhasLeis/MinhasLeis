@@ -478,7 +478,13 @@ h3{
 /* Seção de relatos */
 
 #relatosSection{
-    height: 1200px;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    height: auto;
     background-color: #62AFFF;
 
 }
@@ -486,10 +492,34 @@ h3{
     text-shadow: none;
 }
 
+#relatosSection #caixaTitulo h1{
+    top: auto;
+    transform: none;
 
+}
+
+
+#relatosSection #caixaTitulo{
+    position: static;
+    top:auto;
+    transform: none;
+
+
+}
+
+#relatosSection h1{
+    position: static;
+    top: auto;
+    transform: none;
+}
+#relatosSection h2{
+    top: auto;
+    position: static;
+    transform: none;
+}
 
 #caixaRelato{
-    position: absolute;
+
     display: flex;
     align-items: center;
     width: 80%;
