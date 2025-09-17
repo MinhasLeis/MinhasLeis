@@ -80,7 +80,7 @@ const gerarMenuAdvogados = () => {
 
 
     const menuContent = `
-        <div class="menu-advogados-container">
+        <div class="menu-advogados">
             <div class="advogados-lista">
                 ${cardsHtml}
             </div>
@@ -103,8 +103,6 @@ const gerarMenuAdvogados = () => {
 // Entrada de dados
 // Processamento de dados
 // Saida de dados
-
-
 
 const createMessageElement = (content, ...classes) =>{
     const div = document.createElement("div");
