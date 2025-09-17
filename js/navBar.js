@@ -6,11 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const estruturaNavBar = `
         <nav id="barraNavegacao">
             <a href="./index.html"><img id="logo" src="./assets/img/logoBarraNavegacao.svg" alt="Logo MinhasLeis"></a>
-            <a href="./experimental/testeChatBot.html">Consultar</a>
+            <a href="./questionario.html">Consultar</a>
+            <a href="./assistente_virtual.html">Assistente Virtual</a>
             <a href="./missao_visao_valores.html">Como funciona</a>
-            <a href="./assistente_virtual.html">Dúvidas Frequentes</a>
+            <a href="">Dúvidas Frequentes</a>
             <a href="">Planos</a>
-            <a href="">Ajuda</a>
+
             <a id="loginBtn" href="">Entrar</a>
         </nav>
         `; 
