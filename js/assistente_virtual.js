@@ -28,29 +28,29 @@ const chatHistory = [
     }
 ];
 
-// DADOS DE EXEMPLO DOS ADVOGADOS (Adicione logo após o chatHistory)
+
 const advogados = [
     {
         nome: "Fernando",
-        fotoURL: "https://i.imgur.com/example.png", // Substitua pela URL da imagem real
+        fotoURL: "https://i.imgur.com/example.png", 
         avaliacoes: "Avaliações (189) ★★★★★",
-        especialidades: "Advogado trabalhista, Civil, Propriedade Intelectual e Industrial."
+        especialidades: "Advogado trabalhista, Civil, Propriedade Intelectual e Industrial.",
     },
     {
         nome: "Mariana",
-        fotoURL: "https://i.imgur.com/example2.png", // Substitua pela URL da imagem real
+        fotoURL: "https://i.imgur.com/example2.png", 
         avaliacoes: "Avaliações (215) ★★★★★",
         especialidades: "Direito do Consumidor, Direito de Família."
     },
     {
         nome: "Lucas",
-        fotoURL: "https://i.imgur.com/example3.png", // Substitua pela URL da imagem real
+        fotoURL: "https://i.imgur.com/example3.png", 
         avaliacoes: "Avaliações (150) ★★★★★",
         especialidades: "Direito Penal, Direito Empresarial."
     },
     {
         nome: "Beatriz",
-        fotoURL: "https://i.imgur.com/example4.png", // Substitua pela URL da imagem real
+        fotoURL: "https://i.imgur.com/example4.png", 
         avaliacoes: "Avaliações (302) ★★★★☆",
         especialidades: "Direito Tributário, Direito Imobiliário."
     }
@@ -58,7 +58,7 @@ const advogados = [
 
 // FUNÇÃO PARA CRIAR E EXIBIR O MENU DE ADVOGADOS
 const gerarMenuAdvogados = () => {
-    // Texto introdutório
+ 
     const introContent = `
         <div class="mensagem mensagem-bot">
             <div class="avatar-bot"></div>
@@ -67,7 +67,7 @@ const gerarMenuAdvogados = () => {
             </div>
         </div>`;
     
-    // Mapeia os dados dos advogados para criar os cards em HTML
+  
     const cardsHtml = advogados.map(adv => `
         <div class="advogado-card">
             <img src="${adv.fotoURL}" alt="Foto de ${adv.nome}" class="advogado-foto">
@@ -78,7 +78,7 @@ const gerarMenuAdvogados = () => {
         </div>
     `).join('');
 
-    // Cria o container principal do menu
+
     const menuContent = `
         <div class="menu-advogados-container">
             <div class="advogados-lista">
@@ -86,11 +86,10 @@ const gerarMenuAdvogados = () => {
             </div>
         </div>`;
 
-    // Adiciona os elementos ao chat
-    caixaChat.innerHTML += introContent; // Adiciona a mensagem de introdução
-    caixaChat.innerHTML += menuContent;  // Adiciona o menu com os cards
 
-    // Rola a tela para o final para mostrar o conteúdo novo
+    caixaChat.innerHTML += introContent; 
+    caixaChat.innerHTML += menuContent; 
+
     caixaChat.scrollTo({ top: caixaChat.scrollHeight, behavior: "smooth" });
 };
 
@@ -101,10 +100,15 @@ const gerarMenuAdvogados = () => {
     e o 'classes' que é o nome da classe da mensagem para que ela receba a estilização certa do css
     
 */
+// Entrada de dados
+// Processamento de dados
+// Saida de dados
+
+
 
 const createMessageElement = (content, ...classes) =>{
     const div = document.createElement("div");
-    
+
     div.classList.add("mensagem", ...classes);
 
     div.innerHTML = content
@@ -190,28 +194,28 @@ const handleOutgoingMessage = (e) => {
     const message = mensagemInput.value.trim();
     if (!message) return; // Não envia mensagens vazias
 
-    // Palavras-chave para detectar a confirmação do usuário
+
     const confirmationKeywords = ['sim', 'quero', 'gostaria', 'pode ser', 'chamar', 'advogado', 'localizar', 'encontrar'];
     const messageLowerCase = message.toLowerCase();
 
-    // Verifica se a mensagem contém alguma das palavras-chave
+
     const isConfirmation = confirmationKeywords.some(keyword => messageLowerCase.includes(keyword));
 
-    // Exibe a mensagem do usuário na tela
+
     const outgoingMessageDiv = createMessageElement(`<div class="mensagem-texto">${message}</div>`, "mensagem-usuario");
     caixaChat.appendChild(outgoingMessageDiv);
     mensagemInput.value = "";
     caixaChat.scrollTo({ top: caixaChat.scrollHeight, behavior: "smooth" });
 
-    // Se for uma confirmação, gera o menu de advogados
+
     if (isConfirmation) {
         setTimeout(() => {
             gerarMenuAdvogados();
-        }, 600); // Um pequeno delay para simular o "pensamento"
-        return; // Para a execução para não enviar a confirmação para a IA
+        }, 600); 
+        return; 
     }
 
-    // Se não for uma confirmação, continua o fluxo normal com a IA
+
     chatHistory.push({ role: "user", parts: [{ text: message }] });
 
     if (chatHistory.length > 15) {
@@ -220,9 +224,13 @@ const handleOutgoingMessage = (e) => {
 
     setTimeout(() => {
         const messageContent = `<div class="avatar-bot"></div><div class="mensagem-texto"><div class="indicador-pensamento"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>`;
+
+        //const indicadorPensamentoMessageDiv = div
         const indicadorPensamentoMessageDiv = createMessageElement(messageContent, "mensagem-bot", "indicador-pensamento");
         caixaChat.appendChild(indicadorPensamentoMessageDiv);
+
         caixaChat.scrollTo({ top: caixaChat.scrollHeight, behavior: "smooth" });
+
         generateBotResponse(indicadorPensamentoMessageDiv);
     }, 600);
 };
