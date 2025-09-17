@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    background: linear-gradient(to right, #70c1ff, #007bff);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: white;
+    width: 850px;
+    height: 500px;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(100px);
+    border: 0.5px solid rgb(255, 255, 255, 0.5);
+    flex-direction: row-reverse;
+}
+
+.formulario {
+    background: linear-gradient(to right, #70c1ff, #007bff);
+    flex: 1;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.botoes button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+    transition: 0.3s;
+    background-color: #d0e0f0;
+    color: #333;
+}
+
+.botoes button.selecionado {
+    background-color: #4cd137;
+    color: white;
+}
+
+.botoes button.selecionado:hover {
+    background-color: #44bd32;
+}
+
+.deselecionado:hover {
+    background-color: #8ea8c2;
+}
+
+.formulario h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+.formulario p {
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formulario input {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    outline:none;
+}
+
+.lembrar_esquecer {
+    display: flex;
+    margin-left: 5px;
+    color: white;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.lembrar_esquecer a {
+
+    font-size: 10px;
+    text-decoration: none;
+    color: white; 
+}
+
+.lembrar_esquecer a:hover {
+    text-decoration: underline;
+}
+
+.formulario a {
+    text-align: center;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.botao_principal {
+    padding: 12px;
+    background-color: #4cd137;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.botao_principal:hover {
+    background-color: #44bd32;
+}
+
+.registrase {
+    text-align: center;
+    margin: 20px 0 15px;
+    
+}
+.registrase p {
+    font-size: 13px;
+    text-align: center;
+}
+
+.registrase a {
+    font-size: 13px;
+    color: white;
+    text-decoration: none;
+    font-weight: 1000;
+}
+
+.registrase a:hover {
+    text-decoration: underline;
+
+}
+
+
+.imagem {
+    flex: 1;
+}
+
+.imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

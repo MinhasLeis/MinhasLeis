@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    background: linear-gradient(to right, #70c1ff, #007bff);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 850px;
+    height: 500px;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(100px);
+    border: 0.5px solid rgb(255, 255, 255);
+    background: linear-gradient(to right, #70c1ff, #0e81fc);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p {
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.boxs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+.box-usuario {
+    width:200px;
+    height: 200px;
+    border-radius: 20px;
+    background: linear-gradient(to right bottom, #37F5C3, #13b489);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+
+.box-usuario img {
+    width: 50px;
+    margin-top: 30px;
+}
+
+
+.box-usuario h1 {
+    font-size: 15px;
+    color: white;
+    margin-top: 10px;
+}
+
+
+.box-usuario p {
+    font-size: 14px;
+    color: white;
+}
+
+
+
+
+
+.box-advogado {
+    width:200px;
+    height: 200px;
+    border-radius: 20px;
+    background: #3988d6;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.box-advogado img {
+    width: 50px;
+    margin-top: 40px;
+}
+
+.box-advogado h1 {
+    font-size: 15px;
+    color: #363636;
+    margin-top: 10px;
+}
+
+.box-advogado p {
+    font-size: 15px;
+    color: #363636;
+}
