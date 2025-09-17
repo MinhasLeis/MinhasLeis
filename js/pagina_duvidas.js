@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const faqItems = document.querySelectorAll(".faq-item");
+  // Alterado de ".faq-item" para ".pgt-item" para corresponder ao seu HTML
+  const faqItems = document.querySelectorAll(".pgt-item");
 
   faqItems.forEach(item => {
     const resposta = item.querySelector(".resposta");
@@ -9,8 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
       // Fecha todas as outras respostas
       faqItems.forEach(i => {
         const r = i.querySelector(".resposta");
-        r.style.height = "0px";
-        i.classList.remove("ativo");
+        if (r !== resposta) { // Evita que a resposta atual seja fechada e reaberta
+          r.style.height = "0px";
+          i.classList.remove("ativo");
+        }
       });
 
       // Abre a resposta atual
@@ -26,4 +29,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
