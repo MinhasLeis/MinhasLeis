@@ -254,3 +254,19 @@ mensagemInput.addEventListener("keydown", (e) => {
 //Faz a mesma coisa do detector de teclados, mas é mais simples pois
 //não precisa checar qual foi a tecla pressionada
 enviarMensagem.addEventListener("click", (e) => handleOutgoingMessage(e));
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuHamburgerVirtual = document.querySelector('.menu-hamburger-virtual');
+    const navOptions = document.querySelector('#assistenteVirtualNavBar .option');
+
+    if (menuHamburgerVirtual && navOptions) {
+        menuHamburgerVirtual.addEventListener('click', () => {
+            
+            navOptions.classList.toggle('active');
+           
+            menuHamburgerVirtual.classList.toggle('active');
+        });
+    }
+});

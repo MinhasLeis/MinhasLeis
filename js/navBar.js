@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             <div class="nav-links">
                 ${navLinks}
-                <a id="loginBtn" href="./tela_login.html">Entrar</a>
+                <a id="loginBtn" href="./login.html">Entrar</a>
             </div>
             
             <div class="menu-hamburger">
