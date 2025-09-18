@@ -5,7 +5,7 @@
 }
 
 html{
-    height: 2000px;
+    height: auto;
 }
 
 section{
@@ -17,6 +17,7 @@ section{
     align-items: center;
     justify-items: center;
     position: relative;
+    padding-bottom: 64px;
 }
 
 h1,h2, h3{
