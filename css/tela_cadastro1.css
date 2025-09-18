@@ -9,13 +9,18 @@
 body {
     font-family: "JetBrains Mono", monospace;
     font-optical-sizing: auto;
-    font-weight: <weight>;
     font-style: normal;
     background: linear-gradient(to right, #70c1ff, #007bff);
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    flex-direction: column;
+}
+
+#logo {
+    width: 300px;
+    height: auto;
 }
 
 .container {
@@ -31,13 +36,17 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 100px;
+}
+
+a {
+    display: contents;
 }
 
 h1 {
     color: white;
     text-align: center;
     margin-bottom: 20px;
-    text-align: center;
 }
 
 p {

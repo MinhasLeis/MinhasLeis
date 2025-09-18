@@ -9,25 +9,34 @@
 body {
     font-family: "JetBrains Mono", monospace;
     font-optical-sizing: auto;
-    font-weight: <weight>;
+    font-weight: 400; 
     font-style: normal;
     background: linear-gradient(to right, #70c1ff, #007bff);
-    height: 100vh;
+    min-height: 100vh; 
     display: flex;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
+    flex-direction: column;
+    padding: 20px; 
+    gap: 30px; 
+}
+
+#logo {
+    width: 100%; 
+    max-width: 300px; 
+    height: auto;
 }
 
 .container {
     background: white;
-    width: 850px;
+    width: 100%; 
+    max-width: 850px; 
     height: 500px;
     display: flex;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(100px);
-    border: 0.5px solid rgb(255, 255, 255, 0.5);
+    border: 0.5px solid rgba(255, 255, 255, 0.5);
 }
 
 .formulario {
@@ -38,13 +47,17 @@ body {
     flex-direction: column;
     justify-content: center;
     position: relative;
+    overflow-y: auto; 
+}
+
+a {
+    display: contents;
 }
 
 .botoes {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .botoes button {
@@ -53,7 +66,7 @@ body {
     border: none;
     cursor: pointer;
     font-weight: bold;
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px; 
     transition: 0.3s;
     background-color: #d0e0f0;
     color: #333;
@@ -75,15 +88,14 @@ body {
 .formulario h1 {
     color: white;
     text-align: center;
-    margin-bottom: 20px;
-
+    margin-bottom: 15px;
 }
 
 .formulario p {
     text-align: center;
     font-size: 14px;
     color: white;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .formulario form {
@@ -105,25 +117,18 @@ body {
     margin-left: 5px;
     color: white;
     font-size: 14px;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 5px;
 }
 
-.lembrar_esquecer a {
-
-    font-size: 10px;
+.link {
+    font-size: 12px;
     text-decoration: none;
     color: white; 
 }
 
 .lembrar_esquecer a:hover {
     text-decoration: underline;
-}
-
-.formulario a {
-    text-align: center;
-    font-size: 12px;
-    text-decoration: none;
 }
 
 .botao_principal {
@@ -143,12 +148,12 @@ body {
 
 .registrase {
     text-align: center;
-    margin: 20px 0 15px;
-    
+    margin: 15px 0 10px;
 }
 .registrase p {
     font-size: 13px;
     text-align: center;
+    margin-bottom: 0;
 }
 
 .registrase a {
@@ -160,12 +165,13 @@ body {
 
 .registrase a:hover {
     text-decoration: underline;
-
 }
-
 
 .imagem {
     flex: 1;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
 }
 
 .imagem img {
@@ -173,3 +179,33 @@ body {
     height: 100%;
     object-fit: cover;
 }
+
+
+
+
+
+@media (max-width: 900px) {
+    
+    body {
+        gap: 20px; 
+    }
+
+    .container {
+        flex-direction: column; 
+        height: auto; 
+        max-height: 90vh; 
+    }
+
+    .imagem {
+        display: none; 
+    }
+    
+    .formulario {
+        padding: 30px 25px; 
+    }
+
+    #logo {
+        max-width: 200px; 
+    }
+}
+

@@ -9,11 +9,12 @@
 body {
     font-family: "JetBrains Mono", monospace;
     background: linear-gradient(to right, #70c1ff, #007bff);
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 50px;
 }
 
 #logo {
@@ -30,68 +31,65 @@ body {
     border: 0.5px solid rgba(255, 255, 255, 0.5);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
-    margin-bottom: 100px;
+    gap: 25px; 
 }
 
 .icone-principal {
     width: 80px;
     height: 80px;
-    margin-top: 0; 
-    margin-bottom: 20px;
+
 }
 
 p {
     color: white;
+    text-align: center;
+    font-size: 16px; 
+}
+
+p:first-of-type {
     font-size: 18px;
-    margin-bottom: 12px;
-}
-
-a {
-    text-decoration: none;
-    color: white;
-    font-size: 12px;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 
 .progressao {
     width: 60%;
     height: 10px;
     background-color: rgba(255, 255, 255, 0.3);
-    margin: 30px 0; 
     border-radius: 5px;
     overflow: hidden;
 }
 
 .atual {
-    width: 16.6%;
+    width: 66.4%;
     height: 100%;
     background: linear-gradient(to right, #57C84D, #8deb6b);
 }
 
-.formulario {
-    display: flex;
-    width: 400px;
-    flex-direction: column;
-}
-
-.formulario label {
-    margin-bottom: 5px;
+h3 {
     color: white;
-    font-size: 14px;
+    text-align: center;
 }
 
-.formulario input {
-    width: 100%;
+.imagem_perfil {
+    width: 150px; 
+    height: auto;
+}
+
+button {
+    width: 200px;
     height: 30px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
-    margin-bottom: 15px; 
-    padding: 0 10px;
+    background: linear-gradient(to right, #57C84D, #8deb6b);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    background: linear-gradient(to right, #8deb6b, #22a516 );
+    transform: scale(1.1);
 }
 
 .navegacao {
@@ -99,21 +97,9 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
 }
 
-.circulo-botao_esquerdo {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: linear-gradient(to right, #57C84D, #8deb6b);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
+.circulo-botao_esquerdo,
 .circulo-botao_direito {
     width: 40px;
     height: 40px;
@@ -126,23 +112,17 @@ a:hover {
     transition: transform 0.2s;
 }
 
-.circulo-botao_esquerdo:hover {
-    transform: scale(1.1);
-}
-
+.circulo-botao_esquerdo:hover,
 .circulo-botao_direito:hover {
     transform: scale(1.1);
 }
 
-.circulo-botao_esquerdo img {
-    width: 50%;
-    height: auto;
-}
-
+.circulo-botao_esquerdo img,
 .circulo-botao_direito img {
     width: 50%;
     height: auto;
 }
+
 
 .navegacao .circulo-botao_direito img {
     transform: rotate(180deg);

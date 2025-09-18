@@ -1,0 +1,266 @@
+/* --- Importação da Fonte --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap'); /* Adicionado JetBrains Mono */
+
+/* --- Estilos Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "JetBrains Mono", monospace; /* Alterado para JetBrains Mono */
+    background: linear-gradient(to right, #70c1ff, #007bff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* --- Container Principal --- */
+.container {
+    width: 100%;
+    max-width: 900px; /* Reduzido para diminuir o container geral */
+    padding: 30px; /* Reduzido o padding */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Estilos do cabeçalho de cadastro (adicionados) --- */
+.icone-principal {
+    width: 60px; /* Tamanho ajustado */
+    height: 60px; /* Tamanho ajustado */
+    margin-top: 0;
+    margin-bottom: 15px; /* Ajuste na margem */
+}
+
+p {
+    color: white;
+    font-size: 16px; /* Tamanho ajustado */
+    margin-bottom: 15px; /* Ajuste na margem */
+    text-align: center;
+}
+
+.progressao {
+    width: 60%;
+    height: 8px; /* Altura ajustada */
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 25px 0; /* Ajuste na margem */
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.atual {
+    width: 75%; /* Ajustado para simular o passo 3/4 */
+    height: 95%;
+    background: linear-gradient(to right, #57C84D, #8deb6b);
+}
+
+/* --- Títulos dos Planos --- */
+.container h1 {
+    font-family: "Poppins", sans-serif; /* Mantém Poppins para o título principal */
+    color: white;
+    font-weight: 600;
+    margin-bottom: 5px; /* Ajuste na margem */
+    font-size: 28px; /* Tamanho ajustado */
+}
+
+.container .subtitulo { /* Estilo específico para o subtítulo dos planos */
+    font-family: "Poppins", sans-serif; /* Mantém Poppins para o subtítulo */
+    color: white;
+    font-size: 16px; /* Tamanho ajustado */
+    margin-bottom: 30px; /* Ajuste na margem */
+}
+
+
+.planos-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Garante que os cards tenham a mesma altura */
+    gap: 20px; /* Espaçamento reduzido entre os cards */
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 40px; /* Espaço antes dos botões de navegação */
+}
+
+.plano {
+    background: white;
+    color: #333;
+    border-radius: 12px; /* Borda ligeiramente menor */
+    padding: 20px; /* Padding reduzido */
+    width: 30%;
+    max-width: 270px; /* Largura máxima do card reduzida */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border: 1px solid transparent;
+}
+
+.plano:hover {
+    transform: translateY(-8px); /* Efeito hover ligeiramente menor */
+    box-shadow: 0 6px 20px rgba(0, 91, 255, 0.2);
+}
+
+.plano.popular {
+    transform: scale(1.03); /* Efeito popular ligeiramente menor */
+    border: 2px solid #6f42c1;
+}
+
+.plano.popular:hover {
+    transform: scale(1.08) translateY(-8px);
+}
+
+.popular-tag {
+    position: absolute;
+    top: -12px; /* Posição ajustada */
+    background-color: #6f42c1;
+    color: white;
+    padding: 4px 12px; /* Padding reduzido */
+    border-radius: 18px; /* Borda ligeiramente menor */
+    font-size: 12px; /* Fonte reduzida */
+    font-weight: 700;
+}
+
+.plano-titulo {
+    font-family: "Poppins", sans-serif; /* Mantém Poppins para o título do plano */
+    display: inline-block;
+    padding: 4px 20px; /* Padding reduzido */
+    border-radius: 18px; /* Borda ligeiramente menor */
+    color: white;
+    font-weight: 600;
+    margin-bottom: 15px; /* Margem reduzida */
+    background-color: #28a745;
+    font-size: 13px; /* Fonte reduzida */
+    text-transform: uppercase;
+}
+
+.plano-preco {
+    font-family: "Poppins", sans-serif; /* Mantém Poppins para o preço */
+    font-size: 20px; /* Fonte reduzida */
+    color: #333;
+    margin-bottom: 20px; /* Margem reduzida */
+}
+
+.plano-preco strong {
+    font-size: 40px; /* Fonte reduzida */
+    font-weight: 700;
+}
+
+.plano-features {
+    list-style: none;
+    margin-bottom: 25px; /* Margem reduzida */
+    padding-left: 0;
+    text-align: left;
+    width: 100%;
+    color: #555;
+    flex-grow: 1;
+    font-size: 14px; /* Fonte reduzida */
+}
+
+.plano-features li {
+    margin-bottom: 10px; /* Margem reduzida */
+    font-size: 13px; /* Fonte reduzida */
+}
+
+.plano-botao {
+    font-family: "Poppins", sans-serif; /* Mantém Poppins para o botão */
+    width: 100%;
+    padding: 10px; /* Padding reduzido */
+    border: none;
+    border-radius: 8px;
+    background-color: #ff8c00;
+    color: white;
+    font-size: 14px; /* Fonte reduzida */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+    text-transform: uppercase;
+}
+
+.plano-botao:hover {
+    background-color: #cc7000;
+}
+
+/* --- Navegação (adicionada) --- */
+.navegacao {
+    width: 100%;
+    max-width: 400px; /* Largura ajustada */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px; /* Ajuste na margem superior */
+}
+
+.circulo-botao_esquerdo,
+.circulo-botao_direito {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(to right, #57C84D, #8deb6b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.circulo-botao_esquerdo:hover,
+.circulo-botao_direito:hover {
+    transform: scale(1.1);
+}
+
+.circulo-botao_esquerdo img {
+    width: 50%;
+    height: auto;
+    transform: rotate(0deg); /* Garante que a seta esquerda não esteja rotacionada */
+}
+
+.circulo-botao_direito img {
+    width: 50%;
+    height: auto;
+    transform: rotate(180deg); /* Gira a seta para a direita */
+}
+
+/* --- Responsividade Básica --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    .planos-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .plano {
+        max-width: 90%; /* Ocupa mais espaço em telas pequenas */
+    }
+    .plano.popular {
+        transform: scale(1.0); /* Remove o scale extra em telas pequenas */
+    }
+    .plano.popular:hover {
+        transform: scale(1.05) translateY(-8px);
+    }
+    h1 {
+        font-size: 24px;
+    }
+    .subtitulo {
+        font-size: 14px;
+    }
+    .navegacao {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+}

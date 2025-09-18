@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="stylesheet" href="css/login.css" type="text/css" />
 </head>
 <body>
+    <img src="assets/img/logoBarraNavegacaoWhiteColor.svg" id="logo">
     <main class="container"> 
         <div class="formulario">
             <div class="botoes">
                <button class="selecionado">👤Sou Usuário</button> 
-               <button class="deselecionado">⚖️ Sou Advogado</button> 
+               <a href="tela_advogado_login.html"><button class="deselecionado">⚖️ Sou Advogado</button></a>
             </div>
             
             <h1>Bem Vindo</h1>
@@ -24,18 +25,18 @@
                 <input type="password" placeholder="Senha"> 
                 
                 <div class="lembrar_esquecer">
-                <a href="#">Esqueci minha senha</a>
+                <a href="#" class="link">Esqueci minha senha</a>
                 </div> 
 
                 <button type="submit" class="botao_principal">Entrar</button>
             </form>
             <div class="registrase">
-                <p>Não tem uma conta? <a href="#">Cadastre-se</a></p> 
+                <p>Não tem uma conta? <a href="tela_cadastro1.html" class="link">Cadastre-se</a></p> 
             </div>
         </div>
         
         <div class="imagem">
-            <img src="imagens/digitacao.png">
+            <img src="assets/img/digitacao.png">
         </div>
 
     </main>
