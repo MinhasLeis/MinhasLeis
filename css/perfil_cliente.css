@@ -45,7 +45,7 @@ body{
 #foto_perfil{
     width: 10%; 
     padding-top: 10%; 
-    background: url(../assets/img/advogadoPerfilCr.jpeg);
+    background: url(../assets/img/fotoPerfil.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;

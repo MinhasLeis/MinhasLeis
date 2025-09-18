@@ -190,7 +190,7 @@ body{
     height: 130px;
     border-radius: 50%;
     object-fit: cover;
-    display: block; /* Remove espaço extra embaixo da imagem */
+    display: block;
 }
 
 /* Nome e Preço (usando suas classes) */

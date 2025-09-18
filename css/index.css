@@ -66,8 +66,7 @@ h3{
 }
 
 
-/* 
-    Seção hero
+/* Seção hero
 */
 
 #indexFundo01{
@@ -208,8 +207,7 @@ h3{
 
 }
 
-/* 
-    Seção Como funciona
+/* Seção Como funciona
 */
 
 #comoFuncionaSection{
@@ -594,6 +592,46 @@ h3{
 
 }
 
+/* Adicione este código ao final do seu arquivo index.css */
 
+#mariaSection #inputChatMaria {
+    width: 85%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 1.5vw;
+    color: #333; /* Cor do texto digitado */
+}
 
+#mariaSection #inputChatMaria::placeholder {
+    color: #808080; /* Cor do texto de exemplo */
+    opacity: 1;
+}
 
+/* Garante que o botão não tenha estilos padrão que o desalinhem */
+#mariaSection #btnConhecaMaria {
+    border: none;
+    cursor: pointer;
+}
+
+#mariaSection #caixaPrincipal {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 75%;
+    height: 450px;
+    border-radius: 12px;
+    background-color: #f7f6f2;
+    top: 25%;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* === CÓDIGO PARA VÍDEO RESPONSIVO === */
+/* Este código fará com que qualquer vídeo dentro de um elemento .viewComoFunc se ajuste perfeitamente. */
+.viewComoFunc video {
+    width: 100%; /* Faz o vídeo ocupar toda a largura da div */
+    height: 100%; /* Faz o vídeo ocupar toda a altura da div */
+    object-fit: cover; /* Garante que o vídeo cubra todo o espaço, sem distorcer, cortando o excesso se necessário */
+    border-radius: 12px; /* Aplica as mesmas bordas arredondadas da div pai */
+}
