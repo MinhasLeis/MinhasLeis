@@ -1,66 +1,57 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Pega o elemento onde a barra de navegação será inserida
     const getNavBar = document.getElementById('navBar');
 
-    // Verifica se existe um item 'usuarioLogado' no localStorage
-    const usuarioTaLogado = localStorage.getItem('usuarioLogado');
+    // Define a lista de links de navegação
+    const navLinks = `
+        <a href="./questionario.html">Consultar</a>
+        <a href="./assistente_virtual.html">Assistente Virtual</a>
+        <a href="./missao_visao_valores.html">Sobre nós</a>
+        <a href="./pagina_duvidas.html">Dúvidas Frequentes</a>
+        <a href="./procurar_advogados.html">Procurar Advogados</a>
+    `;
 
-    let estruturaNavBar;
-
-    if (usuarioTaLogado) {
-
-        estruturaNavBar = `
+    // Cria a estrutura da barra de navegação, com o botão "Entrar" sempre presente
+    const estruturaNavBar = `
         <nav id="barraNavegacao">
             <a href="./index.html"><img id="logo" src="./assets/img/logoBarraNavegacao.svg" alt="Logo MinhasLeis"></a>
-            <a href="./questionario.html">Consultar</a>
-            <a href="./assistente_virtual.html">Assistente Virtual</a>
-            <a href="./missao_visao_valores.html">Sobre nós</a>
-            <a href="./pagina_duvidas.html">Dúvidas Frequentes</a>
-            <a href="./procurar_advogados.html">Procurar Advogados</a>
-            <div id="userProfile">
-                <img src="./assets/img/iconeUsuario.svg" alt="Meu Perfil" title="Sair">
+            
+            <div class="nav-links">
+                ${navLinks}
+                <a id="loginBtn" href="./tela_login.html">Entrar</a>
+            </div>
+            
+            <div class="menu-hamburger">
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
             </div>
         </nav>
-        `;
-    } else {
-        
-        estruturaNavBar = `
-        <nav id="barraNavegacao">
-            <a href="./index.html"><img id="logo" src="./assets/img/logoBarraNavegacao.svg" alt="Logo MinhasLeis"></a>
-            <a href="./questionario.html">Consultar</a>
-            <a href="./assistente_virtual.html">Assistente Virtual</a>
-            <a href="./missao_visao_valores.html">Sobre nós</a>
-            <a href="./pagina_duvidas.html">Dúvidas Frequentes</a>
-            <a href="./procurar_advogados.html">Procurar Advogados</a>
-            <a id="loginBtn" href="./tela_login.html">Entrar</a>
-        </nav>
-        `;
-    }
+    `;
     
-
+    // Insere a estrutura criada no HTML da página
     getNavBar.innerHTML = estruturaNavBar;
 
+    // --- LÓGICA PARA FAZER O MENU FUNCIONAR ---
 
-    if (usuarioTaLogado) {
-        const userProfileButton = document.getElementById('userProfile');
-        userProfileButton.addEventListener('click', function() {
+    // Lógica para o menu hambúrguer
+    const menuHamburger = document.querySelector('.menu-hamburger');
+    const navLinksContainer = document.querySelector('.nav-links');
 
-            localStorage.removeItem('usuarioLogado');
+    menuHamburger.addEventListener('click', () => {
+        navLinksContainer.classList.toggle('active');
+        menuHamburger.classList.toggle('active');
+    });
 
-            window.location.href = './index.html';
-        });
-    }
-
-
+    // Lógica de scroll da barra de navegação
     const navbar = document.getElementById("barraNavegacao");
     const logo = document.getElementById("logo");
-
-    const logoOriginal = "assets/img/logoBarraNavegacao.svg";
-    const logoScrolled = "assets/img/logoBarraNavegacaoWhiteColor.svg";
+    const logoOriginal = "./assets/img/logoBarraNavegacao.svg";
+    const logoScrolled = "./assets/img/logoBarraNavegacaoWhiteColor.svg";
 
     window.addEventListener("scroll", () => {
         if (window.scrollY > 15) {
             navbar.classList.add("scrolled");
-
             if (!logo.src.includes("logoBarraNavegacaoWhiteColor.svg")) {
                 logo.style.opacity = 0;
                 setTimeout(() => {
@@ -70,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         } else {
             navbar.classList.remove("scrolled");
-
             if (!logo.src.includes("logoBarraNavegacao.svg")) {
                 logo.style.opacity = 0;
                 setTimeout(() => {

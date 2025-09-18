@@ -62,3 +62,135 @@
     
 }
 
+#barraNavegacao .nav-links {
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+}
+
+
+#barraNavegacao .menu-hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+
+#barraNavegacao .menu-hamburger .linha {
+    width: 30px;
+    height: 3px;
+    background-color: currentColor;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+
+.hidden-mobile {
+    display: none !important;
+}
+
+
+
+@media (max-width: 1024px) {
+    #barraNavegacao #logo {
+        width: 15vw;
+    }
+    #barraNavegacao a {
+        font-size: 1.5vw;
+    }
+    #barraNavegacao #loginBtn {
+        padding: 10px 3vw;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    #barraNavegacao {
+        justify-content: space-between;
+        padding: 0 5vw;
+        width: 100%;
+    }
+
+    #barraNavegacao.scrolled{
+        padding: 0 5vw;
+    }
+
+    #barraNavegacao #logo {
+        width: 25vw; 
+        z-index: 1001;
+    }
+
+
+    #barraNavegacao .menu-hamburger {
+        display: block;
+        z-index: 1001;
+    }
+    
+
+    #barraNavegacao .menu-hamburger.active .linha:nth-child(1) {
+        transform: rotate(-45deg) translate(-8px, 7px);
+    }
+    #barraNavegacao .menu-hamburger.active .linha:nth-child(2) {
+        opacity: 0;
+    }
+    #barraNavegacao .menu-hamburger.active .linha:nth-child(3) {
+        transform: rotate(45deg) translate(-7px, -6px);
+    }
+
+  
+    #barraNavegacao .nav-links {
+        display: none; 
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+    }
+    
+
+    #barraNavegacao .nav-links.active {
+        display: flex;
+        color: white; 
+    }
+
+    #barraNavegacao .nav-links a {
+        font-size: 5vw; 
+        opacity: 0;
+        animation: fadeInLinks 0.5s ease forwards;
+    }
+    
+
+    @keyframes fadeInLinks {
+        to {
+            opacity: 1;
+        }
+    }
+
+    #barraNavegacao a {
+        font-size: 2.2vw;
+    }
+
+    #barraNavegacao #loginBtn {
+        font-size: 2.2vw;
+        padding: 10px 5vw;
+    }
+
+
+    #barraNavegacao .nav-action{
+        z-index: 1001;
+    }
+
+}
+
+#barraNavegacao .nav-links.active #loginBtn {
+    background: transparent; 
+    padding: 0;              
+    color: white;    
+    font-size: 5vw;    
+        
+}
