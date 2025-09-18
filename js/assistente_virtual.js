@@ -32,25 +32,25 @@ const chatHistory = [
 const advogados = [
     {
         nome: "Fernando",
-        fotoURL: "https://i.imgur.com/example.png", 
+        fotoURL: "/assets/img/fotoPerfil.png", 
         avaliacoes: "Avaliações (189) ★★★★★",
         especialidades: "Advogado trabalhista, Civil, Propriedade Intelectual e Industrial.",
     },
     {
         nome: "Mariana",
-        fotoURL: "https://i.imgur.com/example2.png", 
+        fotoURL: "/assets/img/fotoPerfil.png", 
         avaliacoes: "Avaliações (215) ★★★★★",
         especialidades: "Direito do Consumidor, Direito de Família."
     },
     {
         nome: "Lucas",
-        fotoURL: "https://i.imgur.com/example3.png", 
+        fotoURL: "/assets/img/fotoPerfil.png", 
         avaliacoes: "Avaliações (150) ★★★★★",
         especialidades: "Direito Penal, Direito Empresarial."
     },
     {
         nome: "Beatriz",
-        fotoURL: "https://i.imgur.com/example4.png", 
+        fotoURL: "/assets/img/fotoPerfil.png", 
         avaliacoes: "Avaliações (302) ★★★★☆",
         especialidades: "Direito Tributário, Direito Imobiliário."
     }
