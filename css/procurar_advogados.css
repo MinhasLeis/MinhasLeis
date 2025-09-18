@@ -1,0 +1,320 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+#faixaTituloSection{
+    width: 100vw;
+    height: 400px;
+    padding-top: 100px;
+    background-color: rgba(0, 0, 0, 1);
+    background-image: url(../assets/img/fundoFaixaProcurarAdvogados.png);
+    background-size: cover;
+    background-position: 50% 30%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#faixaTituloSection h1{
+    font-size: 3vw;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 0 12px rgba(0, 0, 0, .9);
+}
+
+#faixaTituloSection h2{
+    font-size: 1.5vw;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 0 12px rgba(0, 0, 0, .9);
+}
+
+#conteudoSection{
+
+    padding: 64px 64px 0 64px;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    gap: 64px;
+    justify-content: space-evenly;
+}
+
+
+#filtroAdvogados{
+    flex: 1;
+    height: 800px;
+
+}
+
+
+#conteudoAdvogados{
+    flex: 3;
+    max-width: 1350px;
+    height: 800px;
+
+}
+
+#filtroAdvogados {
+    flex: 1;
+    max-width: 350px; 
+    height: fit-content; 
+    border: none; 
+    border-radius: 8px;
+
+    background-color: #0095ff; 
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; 
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+#filtroAdvogados h4 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.caixaBusca input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: 95% center;
+    padding-right: 40px;
+}
+
+.caixaFiltro {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.caixaFiltro label {
+    font-weight: 500;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.caixaFiltro input, .caixaFiltro select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: white;
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+#btnAplicarFiltro {
+    margin-top: 16px;
+    padding: 15px;
+    background-color: #12d38c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#btnAplicarFiltro:hover {
+    background-color: #008269; 
+}
+
+
+
+#conteudoAdvogados {
+    flex: 3;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 32px;
+    align-content: flex-start;
+    border: none;
+    height: fit-content;
+    padding-bottom: 100px;
+}
+
+
+.cardAdvogado {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    padding: 24px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardAdvogado:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+/* Círculo da Foto */
+.fotoContainerAdvogado {
+    border: 4px solid #0095ff;
+    border-radius: 50%;
+    padding: 5px;
+    margin-bottom: 16px;
+}
+
+.fotoContainerAdvogado img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block; /* Remove espaço extra embaixo da imagem */
+}
+
+/* Nome e Preço (usando suas classes) */
+.caixaNomeAdvogado {
+    background-color: #0095ff;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.caixaNomeAdvogado h3 {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.caixaPrecoAdvogado {
+    background-color: #12d38c;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    margin-top: 8px;
+    width: 100%;
+}
+
+.caixaPrecoAdvogado h4 {
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 600;
+    margin: 0;
+}
+
+.detalhesAdvogado {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.especialidadeAdvogado {
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: #333;
+}
+
+.avaliacoesAdvogado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.estrelas {
+    color: #0095ff;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.infoAdvogado {
+    margin: 0;
+}
+
+@media (max-width: 1350px){
+    #conteudoSection{
+        flex-direction: column;
+        align-items: center;
+
+    }
+    #filtroAdvogados {
+        width: 100%;
+        max-width: none;
+    }
+    #faixaTituloSection h1{
+        text-align: center;
+        font-size: 4.5vw;
+
+    }
+
+    #faixaTituloSection h2{
+        text-align: center;
+        font-size: 3vw;
+        font-weight: 700;
+    }
+    
+}
+
+@media (max-width: 800px){
+    #conteudoSection{
+        flex-direction: column;
+    }
+    
+    #faixaTituloSection h1{
+        text-align: center;
+        font-size: 7vw;
+
+    }
+
+    #faixaTituloSection h2{
+        text-align: center;
+        font-size: 4vw;
+        font-weight: 700;
+    }
+    
+}
+
+@media (max-width: 500px){
+    #conteudoSection{
+        flex-direction: column;
+    }
+    
+    #faixaTituloSection h1{
+        text-align: center;
+        font-size: 9vw;
+
+    }
+
+    #faixaTituloSection h2{
+        text-align: center;
+        font-size: 6vw;
+        font-weight: 700;
+    }
+}
+

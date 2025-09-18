@@ -3,9 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Procurar advogados</title>
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/navBar.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/procurar_advogados.css">
+    <title>MinhasLeis - Procurar advogados</title>
 </head>
 <body>
+    <header id="navBar"></header>
+
+    <section id="faixaTituloSection">
+            <h1>PROFISSIONAIS PRONTOS PARA TE AJUDAR</h1>
+            <h2>Selecione o advogado que melhor atende às suas necessidades</h2>
+    </section>
+
+    <section id="conteudoSection">
+    <div id="filtroAdvogados">
+        <h4>Filtros</h4>
+        <div class="caixaBusca">
+            <input type="text" placeholder="Buscar por nome ou OAB">
+        </div>
+
+        <div class="caixaFiltro">
+            <label for="area">Área de atuação</label>
+            <select id="area">
+                <option value="" disabled selected>Selecione a área</option>
+                <option value="trabalhista">Direito Trabalhista</option>
+                <option value="civil">Direito Civil</option>
+                <option value="penal">Direito Penal</option>
+                <option value="familia">Direito de Família</option>
+                <option value="tributario">Direito Tributário</option>
+            </select>
+        </div>
+
+        <div class="caixaFiltro">
+            <label for="localizacao">Localização</label>
+            <select id="localizacao">
+                <option value="" disabled selected>Selecione o estado</option>
+                <option value="sp">São Paulo</option>
+                <option value="rj">Rio de Janeiro</option>
+                <option value="mg">Minas Gerais</option>
+                <option value="ba">Bahia</option>
+                <option value="sc">Santa Catarina</option>
+            </select>
+        </div>
+
+        <div class="caixaFiltro">
+            <label for="preco">Preço / Honorários</label>
+            <select id="preco">
+                <option value="" disabled selected>Qualquer valor</option>
+                <option value="1">Até R$150/consulta</option>
+                <option value="2">De R$150 a R$300</option>
+                <option value="3">Acima de R$300</option>
+            </select>
+        </div>
+
+        <div class="caixaFiltro">
+            <label for="avaliacoes">Avaliações</label>
+            <select id="avaliacoes">
+                <option value="" disabled selected>Qualquer avaliação</option>
+                <option value="5">5 estrelas</option>
+                <option value="4">4 estrelas ou mais</option>
+                <option value="3">3 estrelas ou mais</option>
+            </select>
+        </div>
+
+        <div class="caixaFiltro">
+            <label for="idioma">Idioma</label>
+            <select id="idioma">
+                <option value="" disabled selected>Selecione o idioma</option>
+                <option value="portugues">Português</option>
+                <option value="ingles">Inglês</option>
+                <option value="espanhol">Espanhol</option>
+            </select>
+        </div>
+
+        <div class="caixaFiltro">
+            <label for="atendimento">Tipo de atendimento</label>
+            <select id="atendimento">
+                <option value="" disabled selected>Todos os tipos</option>
+                <option value="online">Online</option>
+                <option value="presencial">Presencial</option>
+                <option value="hibrido">Online e Presencial</option>
+            </select>
+        </div>
+
+        <button id="btnAplicarFiltro">APLICAR FILTRO</button>
+    </div>
+        <div id="conteudoAdvogados">
+<div class="cardAdvogado">
+    <div class="fotoContainerAdvogado">
+        <img src="https://i.imgur.com/gEKsypa.png" alt="Foto de Fernando de Souza">
+    </div>
+
+    <div class="caixaNomeAdvogado">
+        <h3>Fernando de Souza</h3>
+    </div>
+
+    <div class="caixaPrecoAdvogado">
+        <h4>R$ 150 - R$250/hora</h4>
+    </div>
+
+    <div class="detalhesAdvogado">
+        <p class="especialidadeAdvogado">Advogado trabalhista</p>
+        <div class="avaliacoesAdvogado">
+            <span>Avaliações (189)</span>
+            <div class="estrelas">★★★★☆</div>
+        </div>
+        <p class="infoAdvogado">São Paulo - SP</p>
+        <p class="infoAdvogado">Português, Espanhol</p>
+        <p class="infoAdvogado">Presencial</p>
+    </div>
+</div>
+
+            <div class="cardAdvogado">
+                <div class="fotoContainerAdvogado">
+                    <img src="https://i.imgur.com/gEKsypa.png" alt="Foto de Juliana Moreira">
+                </div>
+
+                <div class="caixaNomeAdvogado">
+                    <h3>Juliana Moreira</h3>
+                </div>
+
+                <div class="caixaPrecoAdvogado">
+                    <h4>R$ 200 - R$300/hora</h4>
+                </div>
+
+                <div class="detalhesAdvogado">
+                    <p class="especialidadeAdvogado">Advogada de Família</p>
+                    <div class="avaliacoesAdvogado">
+                        <span>Avaliações (250)</span>
+                        <div class="estrelas">★★★★★</div>
+                    </div>
+                    <p class="infoAdvogado">Rio de Janeiro - RJ</p>
+                    <p class="infoAdvogado">Português</p>
+                    <p class="infoAdvogado">Online e Presencial</p>
+                </div>
+            </div>
+                        <div class="cardAdvogado">
+                <div class="fotoContainerAdvogado">
+                    <img src="https://i.imgur.com/gEKsypa.png" alt="Foto de Juliana Moreira">
+                </div>
+
+                <div class="caixaNomeAdvogado">
+                    <h3>Juliana Moreira</h3>
+                </div>
+
+                <div class="caixaPrecoAdvogado">
+                    <h4>R$ 200 - R$300/hora</h4>
+                </div>
+
+                <div class="detalhesAdvogado">
+                    <p class="especialidadeAdvogado">Advogada de Família</p>
+                    <div class="avaliacoesAdvogado">
+                        <span>Avaliações (250)</span>
+                        <div class="estrelas">★★★★★</div>
+                    </div>
+                    <p class="infoAdvogado">Rio de Janeiro - RJ</p>
+                    <p class="infoAdvogado">Português</p>
+                    <p class="infoAdvogado">Online e Presencial</p>
+                </div>
+            </div>
+                        <div class="cardAdvogado">
+                <div class="fotoContainerAdvogado">
+                    <img src="https://i.imgur.com/gEKsypa.png" alt="Foto de Juliana Moreira">
+                </div>
+
+                <div class="caixaNomeAdvogado">
+                    <h3>Juliana Moreira</h3>
+                </div>
+
+                <div class="caixaPrecoAdvogado">
+                    <h4>R$ 200 - R$300/hora</h4>
+                </div>
+
+                <div class="detalhesAdvogado">
+                    <p class="especialidadeAdvogado">Advogada de Família</p>
+                    <div class="avaliacoesAdvogado">
+                        <span>Avaliações (250)</span>
+                        <div class="estrelas">★★★★★</div>
+                    </div>
+                    <p class="infoAdvogado">Rio de Janeiro - RJ</p>
+                    <p class="infoAdvogado">Português</p>
+                    <p class="infoAdvogado">Online e Presencial</p>
+                </div>
+            </div>
+                        <div class="cardAdvogado">
+                <div class="fotoContainerAdvogado">
+                    <img src="https://i.imgur.com/gEKsypa.png" alt="Foto de Juliana Moreira">
+                </div>
+
+                <div class="caixaNomeAdvogado">
+                    <h3>Juliana Moreira</h3>
+                </div>
+
+                <div class="caixaPrecoAdvogado">
+                    <h4>R$ 200 - R$300/hora</h4>
+                </div>
+
+                <div class="detalhesAdvogado">
+                    <p class="especialidadeAdvogado">Advogada de Família</p>
+                    <div class="avaliacoesAdvogado">
+                        <span>Avaliações (250)</span>
+                        <div class="estrelas">★★★★★</div>
+                    </div>
+                    <p class="infoAdvogado">Rio de Janeiro - RJ</p>
+                    <p class="infoAdvogado">Português</p>
+                    <p class="infoAdvogado">Online e Presencial</p>
+                </div>
+            </div>
+                        <div class="cardAdvogado">
+                <div class="fotoContainerAdvogado">
+                    <img src="https://i.imgur.com/gEKsypa.png" alt="Foto de Juliana Moreira">
+                </div>
+
+                <div class="caixaNomeAdvogado">
+                    <h3>Juliana Moreira</h3>
+                </div>
+
+                <div class="caixaPrecoAdvogado">
+                    <h4>R$ 200 - R$300/hora</h4>
+                </div>
+
+                <div class="detalhesAdvogado">
+                    <p class="especialidadeAdvogado">Advogada de Família</p>
+                    <div class="avaliacoesAdvogado">
+                        <span>Avaliações (250)</span>
+                        <div class="estrelas">★★★★★</div>
+                    </div>
+                    <p class="infoAdvogado">Rio de Janeiro - RJ</p>
+                    <p class="infoAdvogado">Português</p>
+                    <p class="infoAdvogado">Online e Presencial</p>
+                </div>
+            </div>
+                        <div class="cardAdvogado">
+                <div class="fotoContainerAdvogado">
+                    <img src="https://i.imgur.com/gEKsypa.png" alt="Foto de Juliana Moreira">
+                </div>
+
+                <div class="caixaNomeAdvogado">
+                    <h3>Juliana Moreira</h3>
+                </div>
+
+                <div class="caixaPrecoAdvogado">
+                    <h4>R$ 200 - R$300/hora</h4>
+                </div>
+
+                <div class="detalhesAdvogado">
+                    <p class="especialidadeAdvogado">Advogada de Família</p>
+                    <div class="avaliacoesAdvogado">
+                        <span>Avaliações (250)</span>
+                        <div class="estrelas">★★★★★</div>
+                    </div>
+                    <p class="infoAdvogado">Rio de Janeiro - RJ</p>
+                    <p class="infoAdvogado">Português</p>
+                    <p class="infoAdvogado">Online e Presencial</p>
+                </div>
+            </div>
+                        <div class="cardAdvogado">
+                <div class="fotoContainerAdvogado">
+                    <img src="https://i.imgur.com/gEKsypa.png" alt="Foto de Juliana Moreira">
+                </div>
+
+                <div class="caixaNomeAdvogado">
+                    <h3>Juliana Moreira</h3>
+                </div>
+
+                <div class="caixaPrecoAdvogado">
+                    <h4>R$ 200 - R$300/hora</h4>
+                </div>
+
+                <div class="detalhesAdvogado">
+                    <p class="especialidadeAdvogado">Advogada de Família</p>
+                    <div class="avaliacoesAdvogado">
+                        <span>Avaliações (250)</span>
+                        <div class="estrelas">★★★★★</div>
+                    </div>
+                    <p class="infoAdvogado">Rio de Janeiro - RJ</p>
+                    <p class="infoAdvogado">Português</p>
+                    <p class="infoAdvogado">Online e Presencial</p>
+                </div>
+            </div>       
+        </div>
+
+
+    </section>
+
+
+    <footer id="footer"></footer>
+    <script defer src="./js/footer.js"></script>
+    <script defer src="./js/navBar.js"></script>
     
 </body>
 </html>
