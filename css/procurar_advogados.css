@@ -185,6 +185,10 @@ body{
     margin-bottom: 16px;
 }
 
+
+#conteudoAdvogados a{
+    text-decoration: none;
+}
 .fotoContainerAdvogado img {
     width: 130px;
     height: 130px;
