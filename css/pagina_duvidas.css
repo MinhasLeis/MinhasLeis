@@ -88,7 +88,6 @@
   max-width: 600px;
   padding: 15px;
   background-color: rgb(225, 241, 231);
-  border: 2px solid #202421;
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
@@ -114,8 +113,9 @@
 
 /* ---------------- CONTATO ---------------- */
 .contato {
-  background-color: rgba(113, 115, 114, 0.308);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.841); /* sombra */
+  background: linear-gradient(135deg, rgba(231, 231, 231, 0.377));
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.214); /* sombra */
   margin: 40px auto;
   padding: 70px;
   border-radius: 17px;
